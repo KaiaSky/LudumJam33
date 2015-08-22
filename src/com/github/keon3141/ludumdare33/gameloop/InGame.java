@@ -14,6 +14,7 @@ import org.newdawn.slick.state.StateBasedGame;
 import com.github.keon3141.ludumdare33.entity.Entity;
 import com.github.keon3141.ludumdare33.entity.Person;
 import com.github.keon3141.ludumdare33.entity.UFO;
+import com.github.keon3141.ludumdare33.gui.Button;
 import com.github.keon3141.ludumdare33.gui.Crosshairs;
 
 public class InGame extends BasicGameState {
@@ -21,6 +22,7 @@ public class InGame extends BasicGameState {
 	World w;
 	public static Random rand;
 	Input input;
+	Button test;
 	
 	@Override
 	public int getID() {
@@ -46,6 +48,8 @@ public class InGame extends BasicGameState {
 		w.addEntity(ufo);
 		w.getC().setTarget(ufo);
 		w.addGui(new Crosshairs(0,0,crosshairanim));
+		test =new Button(0,0,anim);
+		w.addGui(test);
 		for(int i = 0; i < 100; i++)
 		{
 			w.addEntity(new Person(rand.nextInt(800),450, humananim));
@@ -65,6 +69,11 @@ public class InGame extends BasicGameState {
 			throws SlickException {
 		float dt = delta/1000.0f;
 		w.update(dt);
+		if(test.pollClicked())
+		{
+			System.out.println("yep");
+		}
+		
 	}
 
 }

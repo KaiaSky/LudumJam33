@@ -76,8 +76,8 @@ public class UFO extends Entity{
 		for(int i = 0; i < l.size(); i++)
 		{
 			Entity e = l.get(i);
-			if(e instanceof Person && beam != null && ((Person)e).afraid&&!((Person)e).onGround)
-			{
+			if(e instanceof Person && ((Person)e).afraid&&!((Person)e).onGround)
+			{                   
 				if(RectangleHelper.contains(this.rect, e.rect))
 				{
 					System.out.print("DIE");
