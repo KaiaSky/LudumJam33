@@ -1,5 +1,7 @@
 package com.github.keon3141.ludumdare33.gameloop;
 
+import java.util.Random;
+
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -9,13 +11,14 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-import com.github.keon3141.ludumdare33.entity.Entity;
+import com.github.keon3141.ludumdare33.entity.Person;
 import com.github.keon3141.ludumdare33.entity.UFO;
+import com.github.keon3141.ludumdare33.gui.Crosshairs;
 
 public class InGame extends BasicGameState {
 
 	World w;
-	
+	public static Random rand;
 	Input input;
 	
 	@Override
@@ -27,12 +30,24 @@ public class InGame extends BasicGameState {
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
 		input = container.getInput();
-		
+		rand = new Random();
 		Image[] img = {new Image("res/img/test.png")};
+		Animation anim = new Animation(img,1);
 		
-		w = new World(1000,1000);
+		Image[] humanimg = {new Image("res/img/human.png")};
+		Animation humananim = new Animation(humanimg,1);
 		
-		w.addEntity(new UFO(new Animation(img,1),0,0,input));
+		Image[] crosshairs = {new Image("res/img/crosshairs.png")};
+		Animation crosshairanim = new Animation(crosshairs,1);
+		
+		w = new World(1000,1000,input);
+		
+		w.addEntity(new UFO(0,0,anim));
+		w.addGui(new Crosshairs(0,0,crosshairanim));
+		for(int i = 0; i < 100; i++)
+		{
+			w.addEntity(new Person(rand.nextInt(800),500, humananim));
+		}
 		
 		
 	}

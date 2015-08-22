@@ -8,20 +8,18 @@ import org.newdawn.slick.Input;
 import com.github.keon3141.ludumdare33.gameloop.World;
 
 public class UFO extends Entity{
-
-	Input in;
+	
 	float DRAG = 1f;
 	float THRUST = 4f;
 	
-	public UFO(Animation newAnim, float newx, float newy, Input input) {
+	public UFO(float newx, float newy, Animation newAnim) {
 		super(newx, newy,newAnim);
-		in = input;
 	}
 	
 	public void update(float dt, World w)
 	{
 		super.update(dt, w);
-		
+		Input in = w.input;
 		boolean keysdown = false;
 		if (in.isKeyDown(in.KEY_W)||in.isKeyDown(in.KEY_UP))
 		{
@@ -51,6 +49,10 @@ public class UFO extends Entity{
 		else{
 			dx -= dt*dx * DRAG;
 			dy -= dt*dy * DRAG;
+		}
+		if(in.isMousePressed(in.MOUSE_LEFT_BUTTON))
+		{
+			w.addEntity(new PlasmaBomb(this.getX()+this.animation.getWidth()/2, this.getY()+this.animation.getHeight(), in.getMouseX(), in.getMouseY()));
 		}
 	}
 
