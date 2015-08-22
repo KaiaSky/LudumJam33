@@ -11,6 +11,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import com.github.keon3141.ludumdare33.entity.Entity;
 import com.github.keon3141.ludumdare33.entity.Person;
 import com.github.keon3141.ludumdare33.entity.UFO;
 import com.github.keon3141.ludumdare33.gui.Crosshairs;
@@ -41,8 +42,9 @@ public class InGame extends BasicGameState {
 		Animation crosshairanim = new Animation(crosshairs,1);
 		
 		w = new World(1000,1000,input);
-		
-		w.addEntity(new UFO(0,0,anim));
+		Entity ufo  = new UFO(0,0,anim);
+		w.addEntity(ufo);
+		w.getC().setTarget(ufo);
 		w.addGui(new Crosshairs(0,0,crosshairanim));
 		for(int i = 0; i < 100; i++)
 		{

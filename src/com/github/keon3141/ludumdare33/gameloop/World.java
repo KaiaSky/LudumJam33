@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 
+import com.github.keon3141.ludumdare33.entity.Camera;
 import com.github.keon3141.ludumdare33.entity.Entity;
 import com.github.keon3141.ludumdare33.gui.GUIElement;
 
@@ -16,6 +17,7 @@ public class World {
 	int height;
 	public Input input;
 	int floorLevel;
+	Camera c;
 	
 	//ArrayList<>
 	
@@ -26,8 +28,17 @@ public class World {
 		this.width=width;
 		this.height=height;
 		this.input = input;
+		c = new Camera(0,0);
 	}
 	
+	public Camera getC() {
+		return c;
+	}
+
+	public void setC(Camera c) {
+		this.c = c;
+	}
+
 	public void addGui(GUIElement g)
 	{
 		guiList.add(g);
@@ -60,6 +71,7 @@ public class World {
 	
 	public void update(float dt)
 	{
+		c.update(dt, this);
 		for(int i = 0; i<entityList.size(); i++)
 		{
 			entityList.get(i).update(dt, this);
@@ -72,10 +84,12 @@ public class World {
 	
 	public void draw(Graphics g)
 	{
+		c.pushTransform(g);
 		for(int i = 0; i<entityList.size(); i++)
 		{
 			entityList.get(i).draw(g);
 		}
+		c.popTransform(g);
 		for(int i = 0; i<guiList.size(); i++)
 		{
 			guiList.get(i).draw(g);

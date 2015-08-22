@@ -24,6 +24,13 @@ public class Entity {
 		dy = 0;
 	}
 	
+	public Entity(float x, float y,float width,float height)
+	{
+		rect = new Rectangle(x, y, width, height);
+		dx = 0;
+		dy = 0;
+	}
+	
 	public void die()
 	{
 		dead = true;

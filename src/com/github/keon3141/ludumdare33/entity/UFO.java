@@ -52,7 +52,7 @@ public class UFO extends Entity{
 		}
 		if(in.isMousePressed(in.MOUSE_LEFT_BUTTON))
 		{
-			w.addEntity(new PlasmaBomb(this.getX()+this.animation.getWidth()/2, this.getY()+this.animation.getHeight(), in.getMouseX(), in.getMouseY()));
+			w.addEntity(new PlasmaBomb(this.getX()+this.animation.getWidth()/2, this.getY()+this.animation.getHeight(), in.getMouseX()+w.getC().getX(), in.getMouseY()+w.getC().getY()));
 		}
 	}
 
