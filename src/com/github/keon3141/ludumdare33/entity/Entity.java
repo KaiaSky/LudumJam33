@@ -4,6 +4,8 @@ import org.newdawn.slick.Animation;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Rectangle;
 
+import com.github.keon3141.ludumdare33.gameloop.World;
+
 public class Entity {
 
 	private Rectangle rect;
@@ -21,7 +23,7 @@ public class Entity {
 		dy = 0;
 	}
 	
-	public void update(float dt)
+	public void update(float dt, World w)
 	{
 		setRelativeXY(dt*dx, dt*dy);
 	}

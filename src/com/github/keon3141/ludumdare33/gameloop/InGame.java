@@ -12,6 +12,7 @@ import com.github.keon3141.ludumdare33.entity.Entity;
 
 public class InGame extends BasicGameState {
 
+	World w;
 	Entity test;
 	Entity test2;
 	
@@ -24,25 +25,29 @@ public class InGame extends BasicGameState {
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
 		Image[] img = {new Image("res/img/test.png")};
+		
+		w = new World(1000,1000);
+		
 		test= new Entity(0,0,new Animation(img,1));
 		test2= new Entity(100,50,new Animation(img,1));
 		test.setDx(10);
+		w.addEntity(test);
+		w.addEntity(test2);
+		
 		
 	}
 
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
-		test.draw(g);
-		test2.draw(g);
+		w.draw(g);
 	}
 
 	@Override
 	public void update(GameContainer container, StateBasedGame game, int delta)
 			throws SlickException {
 		float dt = delta/1000.0f;
-		test.update(dt);
-		test2.update(dt);
+		w.update(dt);
 	}
 
 }

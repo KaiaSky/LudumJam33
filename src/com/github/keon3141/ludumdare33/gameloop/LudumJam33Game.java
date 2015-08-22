@@ -30,6 +30,7 @@ public class LudumJam33Game extends StateBasedGame {
             throws SlickException {
         super.preRenderState(container, g);
         g.setBackground(new Color(255,255,255)); 
+        //g.setAntiAlias(true);
     }
     
     // Main Method
