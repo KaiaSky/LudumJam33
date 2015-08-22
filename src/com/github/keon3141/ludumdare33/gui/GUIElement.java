@@ -1,5 +1,7 @@
 package com.github.keon3141.ludumdare33.gui;
 
+import java.util.ArrayList;
+
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Rectangle;
@@ -10,12 +12,14 @@ public class GUIElement {
 
 	protected Rectangle rect;
 	
-	protected Animation animation;
+	protected ArrayList<Animation> animations;
+	protected int currentanimation;
 	
-	public GUIElement(float x, float y, Animation animation)
+	public GUIElement(float x, float y, ArrayList<Animation> animations)
 	{
-		this.animation = animation;
-		rect = new Rectangle(x, y, this.animation.getWidth(), this.animation.getHeight());
+		this.animations = animations;
+		rect = new Rectangle(x, y, this.animations.get(0).getWidth(), this.animations.get(0).getHeight());
+		currentanimation = 0;
 	}
 	
 	public void update(float dt, World w)
@@ -24,7 +28,7 @@ public class GUIElement {
 	
 	public void draw(Graphics g)
 	{
-		g.drawAnimation(animation, getX(), getY());
+		g.drawAnimation(animations.get(currentanimation), getX(), getY());
 	}
 	
 	public float getX(){ // Left
@@ -35,10 +39,23 @@ public class GUIElement {
 		return rect.getY();
 	}
 
-	public Animation getAnimation() {
-		return animation;
+	public Animation getAnimation(int index) {
+		return animations.get(index);
 	}
 
+	public void addAnimation(Animation animation) {
+		this.animations.add(animation);
+	}
+	
+	public int getCurrentAnimation()
+	{
+		return currentanimation;
+	}
+	
+	public void setCurrentAnimation(int newAnimation)
+	{
+		currentanimation = newAnimation;
+	}
 	
 	public void setX(float newX){
 		rect.setCenterX(newX);
@@ -46,10 +63,6 @@ public class GUIElement {
 	
 	public void setY(float newY){
 		rect.setCenterY(newY);
-	}
-
-	public void setAnimation(Animation animation) {
-		this.animation = animation;
 	}
 	
 }

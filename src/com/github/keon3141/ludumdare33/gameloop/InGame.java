@@ -16,6 +16,7 @@ import com.github.keon3141.ludumdare33.entity.Person;
 import com.github.keon3141.ludumdare33.entity.UFO;
 import com.github.keon3141.ludumdare33.gui.Button;
 import com.github.keon3141.ludumdare33.gui.Crosshairs;
+import com.github.keon3141.ludumdare33.helper.AnimHelper;
 
 public class InGame extends BasicGameState {
 
@@ -34,25 +35,18 @@ public class InGame extends BasicGameState {
 			throws SlickException {
 		input = container.getInput();
 		rand = new Random();
-		Image[] img = {new Image("res/img/test.png")};
-		Animation anim = new Animation(img,1);
-		
-		Image[] humanimg = {new Image("res/img/human.png")};
-		Animation humananim = new Animation(humanimg,1);
-		
-		Image[] crosshairs = {new Image("res/img/crosshairs.png")};
-		Animation crosshairanim = new Animation(crosshairs,1);
+		AnimHelper.setupAnimations();
 		
 		w = new World(1000,1000,500,input);
-		Entity ufo  = new UFO(0,0,anim);
+		Entity ufo  = new UFO(0,0);
 		w.addEntity(ufo);
 		w.getC().setTarget(ufo);
-		w.addGui(new Crosshairs(0,0,crosshairanim));
-		test =new Button(0,0,anim);
+		w.addGui(new Crosshairs(0,0));
+		test =new Button(0,0,AnimHelper.abortbutton);
 		w.addGui(test);
 		for(int i = 0; i < 100; i++)
 		{
-			w.addEntity(new Person(rand.nextInt(800),450, humananim));
+			w.addEntity(new Person(rand.nextInt(800),450));
 		}
 		
 		

@@ -1,5 +1,7 @@
 package com.github.keon3141.ludumdare33.gui;
 
+import java.util.ArrayList;
+
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Input;
 
@@ -10,8 +12,8 @@ public class Button extends GUIElement{
 	public boolean hovered = false;
 	public boolean clicked = true;
 	
-	public Button(float x, float y, Animation animation) {
-		super(x, y, animation);
+	public Button(float x, float y, ArrayList<Animation> animations) {
+		super(x, y, animations);
 	}
 	
 	public void update(float dt, World w)

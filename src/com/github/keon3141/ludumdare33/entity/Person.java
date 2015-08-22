@@ -4,6 +4,7 @@ import org.newdawn.slick.Animation;
 
 import com.github.keon3141.ludumdare33.gameloop.InGame;
 import com.github.keon3141.ludumdare33.gameloop.World;
+import com.github.keon3141.ludumdare33.helper.AnimHelper;
 
 public class Person extends Entity {
 
@@ -14,9 +15,9 @@ public class Person extends Entity {
 	float directionTime;
 	
 	
-	public Person(float x, float y, Animation animation)
+	public Person(float x, float y)
 	{
-		super(x, y, animation);
+		super(x, y, AnimHelper.person);
 		onGround = false;
 		afraid = false;
 		direction = InGame.rand.nextBoolean();

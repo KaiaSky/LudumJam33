@@ -8,6 +8,7 @@ import org.newdawn.slick.Animation;
 import org.newdawn.slick.Input;
 
 import com.github.keon3141.ludumdare33.gameloop.World;
+import com.github.keon3141.ludumdare33.helper.AnimHelper;
 import com.github.keon3141.ludumdare33.helper.RectangleHelper;
 
 public class UFO extends Entity{
@@ -16,8 +17,8 @@ public class UFO extends Entity{
 	float THRUST = 4f;
 	TractorBeam beam;
 	
-	public UFO(float newx, float newy, Animation newAnim) {
-		super(newx, newy,newAnim);
+	public UFO(float newx, float newy) {
+		super(newx, newy,AnimHelper.ufo);
 	}
 	
 	
@@ -58,7 +59,7 @@ public class UFO extends Entity{
 		}
 		if(in.isMousePressed(in.MOUSE_LEFT_BUTTON))
 		{
-			w.addEntity(new PlasmaBomb(this.getX()+this.animation.getWidth()/2, this.getY()+this.animation.getHeight(), in.getMouseX()+w.getC().getX(), in.getMouseY()+w.getC().getY()));
+			w.addEntity(new PlasmaBomb(this.getX()+this.animations.get(currentanimation).getWidth()/2, this.getY()+this.animations.get(currentanimation).getHeight(), in.getMouseX()+w.getC().getX(), in.getMouseY()+w.getC().getY()));
 		}
 		if(in.isKeyDown(in.KEY_SPACE) && beam == null)
 		{

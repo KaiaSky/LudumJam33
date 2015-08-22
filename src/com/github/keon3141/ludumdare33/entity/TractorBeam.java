@@ -12,7 +12,7 @@ public class TractorBeam extends Entity{
 	UFO parent;
 	
 	public TractorBeam(UFO parentship) {
-		super(0,0, AnimHelper.getAnimation("res/img/tractorbeam.png"));
+		super(0,0, AnimHelper.beam);
 		parent = parentship;
 	}
 	

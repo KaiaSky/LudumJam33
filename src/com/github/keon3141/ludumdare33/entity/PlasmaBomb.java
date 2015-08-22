@@ -11,16 +11,8 @@ public class PlasmaBomb extends Entity{
 
 	public static float SPEED = 300;
 	
-	public PlasmaBomb(float newx, float newy, Animation newAnim,  float targetX, float targetY) {
-		super(newx, newy, newAnim);
-		float dxtemp = (targetX-newx);
-		float dytemp = (targetY-newy);
-		dx = (float) (dxtemp*SPEED/Math.sqrt(dxtemp*dxtemp+dytemp*dytemp));
-		dy = (float) (dytemp*SPEED/Math.sqrt(dxtemp*dxtemp+dytemp*dytemp));
-	}
-	
 	public PlasmaBomb(float newx, float newy,float targetX, float targetY) {
-		super(newx, newy, AnimHelper.getAnimation("res/img/plasmabolt.png"));
+		super(newx, newy, AnimHelper.plasma);
 		float dxtemp = (targetX-newx);
 		float dytemp = (targetY-newy);
 		dx = (float) (dxtemp*SPEED/Math.sqrt(dxtemp*dxtemp+dytemp*dytemp));

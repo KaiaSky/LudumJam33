@@ -13,13 +13,8 @@ public class Explosion extends Entity{
 	public float lifetime = 0.25f;
 	public Circle scareRadius;
 	
-	public Explosion(float x, float y, Animation animation) {
-		super(x, y, animation);
-		scareRadius = new Circle(rect.getCenterX(), rect.getCenterY(), rect.getWidth()*2);
-	}
-	
 	public Explosion(float xCenter, float yCenter) {
-		super(xCenter, xCenter, AnimHelper.getAnimation("res/img/explosion.png"));
+		super(xCenter, xCenter, AnimHelper.explosion);
 		rect.setCenterX(xCenter);
 		rect.setCenterY(yCenter);
 		scareRadius = new Circle(rect.getCenterX(), rect.getCenterY(), rect.getWidth()*2);
