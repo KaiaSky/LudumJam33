@@ -7,7 +7,7 @@ import com.github.keon3141.ludumdare33.gameloop.World;
 
 public class Person extends Entity {
 
-	public int speed = 10;
+	public int speed = 40;
 	boolean onGround;
 	boolean afraid;
 	boolean direction; // right true
@@ -17,7 +17,7 @@ public class Person extends Entity {
 	public Person(float x, float y, Animation animation)
 	{
 		super(x, y, animation);
-		onGround = true;
+		onGround = false;
 		afraid = false;
 		direction = InGame.rand.nextBoolean();
 		directionTime = InGame.rand.nextInt(300)/10.0f;
@@ -28,6 +28,7 @@ public class Person extends Entity {
 		super.update(dt, w);
 		if(onGround)
 		{
+			dy = 0;
 			if(!afraid)
 			{
 				if(direction)
@@ -57,6 +58,14 @@ public class Person extends Entity {
 				}
 			}
 			
+		}
+		else{
+			dy += 60*dt;
+			if(this.rect.getMaxY()>w.getFloorLevel())
+			{
+				onGround = true;
+				this.rect.setY(w.getFloorLevel()-this.rect.getHeight());
+			}
 		}
 	}
 	

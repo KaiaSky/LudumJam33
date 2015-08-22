@@ -41,14 +41,14 @@ public class InGame extends BasicGameState {
 		Image[] crosshairs = {new Image("res/img/crosshairs.png")};
 		Animation crosshairanim = new Animation(crosshairs,1);
 		
-		w = new World(1000,1000,input);
+		w = new World(1000,1000,500,input);
 		Entity ufo  = new UFO(0,0,anim);
 		w.addEntity(ufo);
 		w.getC().setTarget(ufo);
 		w.addGui(new Crosshairs(0,0,crosshairanim));
 		for(int i = 0; i < 100; i++)
 		{
-			w.addEntity(new Person(rand.nextInt(800),500, humananim));
+			w.addEntity(new Person(rand.nextInt(800),450, humananim));
 		}
 		
 		

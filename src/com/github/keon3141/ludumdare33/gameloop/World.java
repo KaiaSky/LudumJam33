@@ -21,16 +21,25 @@ public class World {
 	
 	//ArrayList<>
 	
-	public World(int width, int height, Input input)
+	public World(int width, int height, int floor, Input input)
 	{
 		entityList = new ArrayList<Entity>();
 		guiList = new ArrayList<GUIElement>();
 		this.width=width;
 		this.height=height;
 		this.input = input;
+		this.floorLevel = floor;
 		c = new Camera(0,0);
 	}
 	
+	public int getFloorLevel() {
+		return floorLevel;
+	}
+
+	public void setFloorLevel(int floorLevel) {
+		this.floorLevel = floorLevel;
+	}
+
 	public Camera getC() {
 		return c;
 	}
