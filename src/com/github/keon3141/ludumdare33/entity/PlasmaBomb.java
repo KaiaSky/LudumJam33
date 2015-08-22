@@ -38,8 +38,8 @@ public class PlasmaBomb extends Entity{
 			{
 				if(e.rect.intersects(this.rect))
 				{
-					l.remove(this);
-					//w.addEntity(e)
+					this.die();
+					w.addEntity(new Explosion(rect.getCenterX(), rect.getCenterY()));
 				}
 			}
 		}

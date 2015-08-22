@@ -45,6 +45,17 @@ public class Person extends Entity {
 					directionTime = InGame.rand.nextInt(300)/10.0f;
 				}
 			}
+			else //Afraid
+			{
+				if(direction)
+				{
+					this.dx = speed*4;
+				}
+				else
+				{
+					this.dx = -speed*4;
+				}
+			}
 			
 		}
 	}

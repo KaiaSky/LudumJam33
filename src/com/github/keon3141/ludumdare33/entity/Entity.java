@@ -14,6 +14,7 @@ public class Entity {
 	
 	protected float dx;
 	protected float dy;
+	protected boolean dead = false;
 	
 	public Entity(float x, float y, Animation animation)
 	{
@@ -23,9 +24,18 @@ public class Entity {
 		dy = 0;
 	}
 	
+	public void die()
+	{
+		dead = true;
+	}
+	
 	public void update(float dt, World w)
 	{
 		setRelativeXY(dt*dx, dt*dy);
+		if (dead)
+		{
+			w.removeEntity(this);
+		}
 	}
 	
 	public void draw(Graphics g)

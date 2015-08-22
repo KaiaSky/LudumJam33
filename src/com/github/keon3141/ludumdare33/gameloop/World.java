@@ -38,6 +38,16 @@ public class World {
 		entityList.add(e);
 	}
 	
+	public void removeGUI(GUIElement g)
+	{
+		guiList.remove(g);
+	}
+	
+	public void removeEntity(Entity e)
+	{
+		entityList.remove(e);
+	}
+	
 	public ArrayList<Entity> getEntityList()
 	{
 		return entityList;
