@@ -4,17 +4,19 @@ import org.newdawn.slick.Animation;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 import com.github.keon3141.ludumdare33.entity.Entity;
+import com.github.keon3141.ludumdare33.entity.UFO;
 
 public class InGame extends BasicGameState {
 
 	World w;
-	Entity test;
-	Entity test2;
+	
+	Input input;
 	
 	@Override
 	public int getID() {
@@ -24,15 +26,13 @@ public class InGame extends BasicGameState {
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
+		input = container.getInput();
+		
 		Image[] img = {new Image("res/img/test.png")};
 		
 		w = new World(1000,1000);
 		
-		test= new Entity(0,0,new Animation(img,1));
-		test2= new Entity(100,50,new Animation(img,1));
-		test.setDx(10);
-		w.addEntity(test);
-		w.addEntity(test2);
+		w.addEntity(new UFO(new Animation(img,1),0,0,input));
 		
 		
 	}

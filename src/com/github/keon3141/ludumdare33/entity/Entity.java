@@ -8,12 +8,12 @@ import com.github.keon3141.ludumdare33.gameloop.World;
 
 public class Entity {
 
-	private Rectangle rect;
+	protected Rectangle rect;
 	
-	private Animation animation;
+	protected Animation animation;
 	
-	private float dx;
-	private float dy;
+	protected float dx;
+	protected float dy;
 	
 	public Entity(float x, float y, Animation animation)
 	{
