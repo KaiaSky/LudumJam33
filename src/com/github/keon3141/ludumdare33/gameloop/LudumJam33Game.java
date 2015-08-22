@@ -1,6 +1,7 @@
 package com.github.keon3141.ludumdare33.gameloop;
 
 import org.newdawn.slick.AppGameContainer;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -12,6 +13,7 @@ public class LudumJam33Game extends StateBasedGame {
     public static final int HEIGHT = 600;
     public static final int FPS = 60;
     public static final String VERSION = "0.0.1a",
+            TITLE = "Ludum Jam 33 Game";
     private static AppGameContainer app;
 
     public LudumJam33Game(String appName) {
@@ -20,13 +22,14 @@ public class LudumJam33Game extends StateBasedGame {
 
     @Override
     public void initStatesList(GameContainer gc) throws SlickException {
-        //addState(new InGame());
+        addState(new InGame());
     }
 
     @Override
     protected void preRenderState(GameContainer container, Graphics g)
             throws SlickException {
         super.preRenderState(container, g);
+        g.setBackground(new Color(255,255,255)); 
     }
     
     // Main Method
