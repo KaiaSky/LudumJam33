@@ -24,6 +24,8 @@ public class AnimHelper {
 	public static ArrayList<Animation> launchbutton;
 	public static ArrayList<Animation> upgradebutton;
 	
+	public static ArrayList<Animation> upgradebg;
+	
 	public static void setupAnimations()
 	{
 		ufo = new ArrayList<Animation>();
@@ -84,6 +86,9 @@ public class AnimHelper {
 		upgradebutton.add(getAnimation("/res/img/gui/upgradescreen/buttonpressed.png"));
 		upgradebutton.add(getAnimation("/res/img/gui/upgradescreen/buttonowned.png"));
 		upgradebutton.add(getAnimation("/res/img/gui/upgradescreen/buttoncantunlock.png"));
+		
+		upgradebg = new ArrayList<Animation>();
+		upgradebg.add(getAnimation("/res/img/gui/upgradescreen/upgradescreenbg.png"));
 	}
 	
 	public static Animation getAnimation(String str)

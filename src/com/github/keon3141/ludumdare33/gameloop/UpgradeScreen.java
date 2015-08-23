@@ -7,6 +7,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import com.github.keon3141.ludumdare33.gui.BG;
 import com.github.keon3141.ludumdare33.gui.Button;
 import com.github.keon3141.ludumdare33.gui.TechTree;
 import com.github.keon3141.ludumdare33.helper.AnimHelper;
@@ -18,16 +19,20 @@ public class UpgradeScreen extends BasicGameState{
 	Input input;
 	World w;
 	TechTree tt;
+	BG background;
 	
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
 		input = container.getInput();
 		w = new World(800,600,600,input);
+		background = new BG(AnimHelper.upgradebg, 0,w);
+		w.addGui(background);
 		launchinvasion = new Button(400-128,550-32,AnimHelper.launchbutton);
 		tt = new TechTree();
 		w.addGui(tt);
 		w.addGui(launchinvasion);
+		
 	}
 
 	@Override

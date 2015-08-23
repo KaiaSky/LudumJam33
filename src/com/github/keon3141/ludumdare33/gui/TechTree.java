@@ -61,7 +61,7 @@ public class TechTree extends GUIElement{
 		}
 		purchase.draw(g);
 		g.setFont(fontFlavor);
-		g.setColor(new Color(0,0,0));
+		g.setColor(new Color(255,255,255));
 		StringRenderHelper.renderMultilineString(g,flavortext.get(currentActive), 475, 100);
 	}
 	
