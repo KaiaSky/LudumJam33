@@ -68,6 +68,11 @@ public class Person extends Entity {
 				this.rect.setY(w.getFloorLevel()-this.rect.getHeight());
 			}
 		}
+		if(this.rect.getMinX() < 0 || this.rect.getMaxX() > w.width)
+		{
+			direction = !direction;
+			dx = -dx;
+		}
 	}
 	
 }

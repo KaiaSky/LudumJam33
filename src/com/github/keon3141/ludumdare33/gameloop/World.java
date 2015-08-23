@@ -13,8 +13,8 @@ public class World {
 	
 	ArrayList<Entity> entityList;
 	ArrayList<GUIElement> guiList;
-	int width;
-	int height;
+	public int width;
+	public int height;
 	public Input input;
 	int floorLevel;
 	Camera c;

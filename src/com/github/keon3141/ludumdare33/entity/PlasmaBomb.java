@@ -35,6 +35,21 @@ public class PlasmaBomb extends Entity{
 				}
 			}
 		}
+		
+		if(this.rect.getMinX() < 0)
+		{
+			this.die();
+		}if(this.rect.getMinY() < 0)
+		{
+			this.die();
+		}if(this.rect.getMaxX() > w.width)
+		{
+			this.die();
+		}if(this.rect.getMaxY() > w.getFloorLevel())
+		{
+			this.die();
+			w.addEntity(new Explosion(rect.getCenterX(), rect.getCenterY()));
+		}
 	}
 
 }

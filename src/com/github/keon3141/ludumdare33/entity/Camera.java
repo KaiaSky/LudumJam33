@@ -58,6 +58,19 @@ public class Camera extends Entity{
 			dx = 2*(target.rect.getCenterX()-this.rect.getCenterX());
 			dy = 2*(target.rect.getCenterY()-this.rect.getCenterY());
 		}
+		if(this.rect.getMinX() < 0)
+		{
+			this.rect.setX(0);
+		}if(this.rect.getMinY() < 0)
+		{
+			this.rect.setY(0);
+		}if(this.rect.getMaxX() > w.width)
+		{
+			this.rect.setX(w.width-this.rect.getWidth());
+		}if(this.rect.getMaxY() > w.height)
+		{
+			this.rect.setY(w.height-this.rect.getHeight());
+		}
 	}
 
 }

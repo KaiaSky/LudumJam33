@@ -14,7 +14,7 @@ import com.github.keon3141.ludumdare33.helper.RectangleHelper;
 public class UFO extends Entity{
 	
 	float DRAG = 1f;
-	float THRUST = 4f;
+	float THRUST = 240f;
 	TractorBeam beam;
 	
 	public UFO(float newx, float newy) {
@@ -31,22 +31,22 @@ public class UFO extends Entity{
 		if (in.isKeyDown(in.KEY_W)||in.isKeyDown(in.KEY_UP))
 		{
 			keysdown = true;
-			dy -= THRUST;
+			dy -= THRUST*dt;
 		}
 		if (in.isKeyDown(in.KEY_A)||in.isKeyDown(in.KEY_LEFT))
 		{
 			keysdown = true;
-			dx -= THRUST;
+			dx -= THRUST*dt;
 		}
 		if (in.isKeyDown(in.KEY_S)||in.isKeyDown(in.KEY_DOWN))
 		{
 			keysdown = true;
-			dy += THRUST;
+			dy += THRUST*dt;
 		}
 		if (in.isKeyDown(in.KEY_D)||in.isKeyDown(in.KEY_RIGHT))
 		{
 			keysdown = true;
-			dx += THRUST;
+			dx += THRUST*dt;
 		}
 		if(!(keysdown)) // More drag if no keys pressed
 		{
@@ -85,6 +85,20 @@ public class UFO extends Entity{
 					e.die(); //rip
 				}
 			}
+		}
+		
+		if(this.rect.getMinX() < 0)
+		{
+			this.rect.setX(0);
+		}if(this.rect.getMinY() < 0)
+		{
+			this.rect.setY(0);
+		}if(this.rect.getMaxX() > w.width)
+		{
+			this.rect.setX(w.width-this.rect.getWidth());
+		}if(this.rect.getMaxY()+75 > w.getFloorLevel())
+		{
+			dy-=THRUST*2* (this.rect.getMaxY()+75- w.getFloorLevel())/35*dt;
 		}
 	}
 

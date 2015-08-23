@@ -37,7 +37,7 @@ public class InGame extends BasicGameState {
 		rand = new Random();
 		AnimHelper.setupAnimations();
 		
-		w = new World(1000,1000,500,input);
+		w = new World(1600,800,500,input);
 		Entity ufo  = new UFO(0,0);
 		w.addEntity(ufo);
 		w.getC().setTarget(ufo);
