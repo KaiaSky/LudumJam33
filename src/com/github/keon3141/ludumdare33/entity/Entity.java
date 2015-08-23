@@ -50,6 +50,10 @@ public class Entity {
 		}
 	}
 	
+	public void pauseUpdate(float dt, World w)
+	{
+	}
+	
 	public void draw(Graphics g)
 	{
 		g.drawAnimation(animations.get(currentanimation), getX(), getY());

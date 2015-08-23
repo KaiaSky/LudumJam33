@@ -26,6 +26,10 @@ public class GUIElement {
 	{
 	}
 	
+	public void pauseUpdate(float dt, World w)
+	{
+	}
+	
 	public void draw(Graphics g)
 	{
 		g.drawAnimation(animations.get(currentanimation), getX(), getY());
@@ -58,11 +62,11 @@ public class GUIElement {
 	}
 	
 	public void setX(float newX){
-		rect.setCenterX(newX);
+		rect.setX(newX);
 	}
 	
 	public void setY(float newY){
-		rect.setCenterY(newY);
+		rect.setY(newY);
 	}
 	
 }

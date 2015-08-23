@@ -1,13 +1,11 @@
 package com.github.keon3141.ludumdare33.gameloop;
 
-import java.awt.Font;
 import java.util.Random;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -16,6 +14,7 @@ import com.github.keon3141.ludumdare33.entity.Person;
 import com.github.keon3141.ludumdare33.entity.UFO;
 import com.github.keon3141.ludumdare33.gui.Button;
 import com.github.keon3141.ludumdare33.gui.Crosshairs;
+import com.github.keon3141.ludumdare33.gui.EndLevelScreen;
 import com.github.keon3141.ludumdare33.gui.Healthbar;
 import com.github.keon3141.ludumdare33.gui.Timer;
 import com.github.keon3141.ludumdare33.helper.AnimHelper;
@@ -26,6 +25,9 @@ public class InGame extends BasicGameState {
 	public static Random rand;
 	Input input;
 	Button test;
+	Healthbar health;
+	Timer time;
+	boolean over = false;
 	
 	@Override
 	public int getID() {
@@ -46,8 +48,10 @@ public class InGame extends BasicGameState {
 		w.addGui(new Crosshairs(0,0));
 		test =new Button(0,0,AnimHelper.abortbutton);
 		w.addGui(test);
-		w.addGui(new Timer(800-128,0));
-		w.addGui(new Healthbar(50,550, (UFO)ufo));
+		time = new Timer(800-128,0);
+		w.addGui(time);
+		health = new Healthbar(50,550, (UFO)ufo);
+		w.addGui(health);
 		for(int i = 0; i < 100; i++)
 		{
 			w.addEntity(new Person(rand.nextInt(800),450));
@@ -67,11 +71,26 @@ public class InGame extends BasicGameState {
 			throws SlickException {
 		float dt = delta/1000.0f;
 		w.update(dt);
-		if(test.pollClicked())
+		if(!over)
 		{
-			System.out.println("yep");
+			if(test.pollClicked())
+			{
+				w.addGui(new EndLevelScreen(2));
+				over = true;
+				w.setActive(false);
+			}
+			if(health.dead)
+			{
+				w.addGui(new EndLevelScreen(1));
+				over = true;
+				w.setActive(false);
+			}if(time.out)
+			{
+				w.addGui(new EndLevelScreen(0));
+				over = true;
+				w.setActive(false);
+			}
 		}
-		
 	}
 
 }

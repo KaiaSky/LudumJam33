@@ -17,6 +17,7 @@ public class AnimHelper {
 	public static ArrayList<Animation> crosshairs;
 	public static ArrayList<Animation> timer;
 	public static ArrayList<Animation> healthbar;
+	public static ArrayList<Animation> endscreen;
 	
 	public static void setupAnimations()
 	{
@@ -49,6 +50,11 @@ public class AnimHelper {
 		healthbar = new ArrayList<Animation>();
 		healthbar.add(getAnimation("/res/img/gui/healthbar/empty.png"));
 		healthbar.add(getAnimation("/res/img/gui/healthbar/full.png"));
+		
+		endscreen = new ArrayList<Animation>();
+		endscreen.add(getAnimation("/res/img/gui/endlevelscreens/time.png"));
+		endscreen.add(getAnimation("/res/img/gui/endlevelscreens/shipdestroyed.png"));
+		endscreen.add(getAnimation("/res/img/gui/endlevelscreens/abort.png"));
 	}
 	
 	public static Animation getAnimation(String str)

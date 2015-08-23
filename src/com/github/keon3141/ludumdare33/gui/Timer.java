@@ -14,7 +14,7 @@ public class Timer extends GUIElement{
 
 	float initialTime = 30;
 	float currentTime;
-	boolean out = false;
+	public boolean out = false;
 	Font awtFont = new Font("Times New Roman", Font.BOLD, 72);
 	TrueTypeFont font = new TrueTypeFont(awtFont, false);
 	

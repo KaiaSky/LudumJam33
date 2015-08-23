@@ -16,6 +16,7 @@ public class World {
 	public int width;
 	public int height;
 	public Input input;
+	public boolean active = true;
 	int floorLevel;
 	Camera c;
 	
@@ -80,14 +81,27 @@ public class World {
 	
 	public void update(float dt)
 	{
-		c.update(dt, this);
-		for(int i = 0; i<entityList.size(); i++)
+		if(active)
 		{
-			entityList.get(i).update(dt, this);
-		}
-		for(int i = 0; i<guiList.size(); i++)
-		{
-			guiList.get(i).update(dt, this);
+			c.update(dt, this);
+			for(int i = 0; i<entityList.size(); i++)
+			{
+				entityList.get(i).update(dt, this);
+			}
+			for(int i = 0; i<guiList.size(); i++)
+			{
+				guiList.get(i).update(dt, this);
+			}
+		}else{
+			c.update(dt, this);
+			for(int i = 0; i<entityList.size(); i++)
+			{
+				entityList.get(i).pauseUpdate(dt, this);
+			}
+			for(int i = 0; i<guiList.size(); i++)
+			{
+				guiList.get(i).pauseUpdate(dt, this);
+			}
 		}
 	}
 	
@@ -103,5 +117,13 @@ public class World {
 		{
 			guiList.get(i).draw(g);
 		}
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 }
