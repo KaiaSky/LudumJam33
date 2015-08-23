@@ -41,6 +41,27 @@ public class AnimHelper {
 		person.add(getAnimation("/res/img/entities/person/blackwoman/rightair.png"));
 		person.add(getAnimation("/res/img/entities/person/blackwoman/leftair.png"));
 		
+		person.add(getAnimation(new String[]{"/res/img/entities/person/blackman/right1.png","/res/img/entities/person/blackman/right2.png","/res/img/entities/person/blackman/right3.png","/res/img/entities/person/blackman/right4.png"},200));
+		person.add(getAnimation(new String[]{"/res/img/entities/person/blackman/left1.png","/res/img/entities/person/blackman/left2.png","/res/img/entities/person/blackman/left3.png","/res/img/entities/person/blackman/left4.png"},200));
+		person.add(getAnimation(new String[]{"/res/img/entities/person/blackman/right1.png","/res/img/entities/person/blackman/right2.png","/res/img/entities/person/blackman/right3.png","/res/img/entities/person/blackman/right4.png"},100));
+		person.add(getAnimation(new String[]{"/res/img/entities/person/blackman/left1.png","/res/img/entities/person/blackman/left2.png","/res/img/entities/person/blackman/left3.png","/res/img/entities/person/blackman/left4.png"},100));
+		person.add(getAnimation("/res/img/entities/person/blackman/rightair.png"));
+		person.add(getAnimation("/res/img/entities/person/blackman/leftair.png"));
+		
+		person.add(getAnimation(new String[]{"/res/img/entities/person/whitewoman/right1.png","/res/img/entities/person/whitewoman/right2.png","/res/img/entities/person/whitewoman/right3.png","/res/img/entities/person/whitewoman/right4.png"},200));
+		person.add(getAnimation(new String[]{"/res/img/entities/person/whitewoman/left1.png","/res/img/entities/person/whitewoman/left2.png","/res/img/entities/person/whitewoman/left3.png","/res/img/entities/person/whitewoman/left4.png"},200));
+		person.add(getAnimation(new String[]{"/res/img/entities/person/whitewoman/right1.png","/res/img/entities/person/whitewoman/right2.png","/res/img/entities/person/whitewoman/right3.png","/res/img/entities/person/whitewoman/right4.png"},100));
+		person.add(getAnimation(new String[]{"/res/img/entities/person/whitewoman/left1.png","/res/img/entities/person/whitewoman/left2.png","/res/img/entities/person/whitewoman/left3.png","/res/img/entities/person/whitewoman/left4.png"},100));
+		person.add(getAnimation("/res/img/entities/person/whitewoman/rightair.png"));
+		person.add(getAnimation("/res/img/entities/person/whitewoman/leftair.png"));
+		
+		person.add(getAnimation(new String[]{"/res/img/entities/person/whiteman/right1.png","/res/img/entities/person/whiteman/right2.png","/res/img/entities/person/whiteman/right3.png","/res/img/entities/person/whiteman/right4.png"},200));
+		person.add(getAnimation(new String[]{"/res/img/entities/person/whiteman/left1.png","/res/img/entities/person/whiteman/left2.png","/res/img/entities/person/whiteman/left3.png","/res/img/entities/person/whiteman/left4.png"},200));
+		person.add(getAnimation(new String[]{"/res/img/entities/person/whiteman/right1.png","/res/img/entities/person/whiteman/right2.png","/res/img/entities/person/whiteman/right3.png","/res/img/entities/person/whiteman/right4.png"},100));
+		person.add(getAnimation(new String[]{"/res/img/entities/person/whiteman/left1.png","/res/img/entities/person/whiteman/left2.png","/res/img/entities/person/whiteman/left3.png","/res/img/entities/person/whiteman/left4.png"},100));
+		person.add(getAnimation("/res/img/entities/person/whiteman/rightair.png"));
+		person.add(getAnimation("/res/img/entities/person/whiteman/leftair.png"));
+		
 		beam = new ArrayList<Animation>();
 		beam.add(getAnimation("/res/img/tractorbeam.png"));
 		

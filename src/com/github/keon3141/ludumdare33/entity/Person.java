@@ -23,7 +23,7 @@ public class Person extends Entity implements GoodGuys {
 		afraid = false;
 		direction = InGame.rand.nextBoolean();
 		directionTime = InGame.rand.nextInt(300)/10.0f;
-		ethnicity = 0;//InGame.rand.nextInt(4);
+		ethnicity =InGame.rand.nextInt(4);
 	}
 	
 	public void update(float dt, World w)
