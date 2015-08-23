@@ -60,6 +60,17 @@ public class World {
 		entityList.add(e);
 	}
 	
+	public void addEntity(Entity e, int place)
+	{
+		entityList.add(place, e);
+	}
+	
+	public void moveEntityOrder(Entity e, int place)
+	{
+		this.removeEntity(e);
+		this.addEntity(e, place);
+	}
+	
 	public void removeGUI(GUIElement g)
 	{
 		guiList.remove(g);

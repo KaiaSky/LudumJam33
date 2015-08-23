@@ -13,7 +13,7 @@ public class Missile extends Entity implements GoodGuys{
 	int damage = 10;
 	
 	public Missile(float x, float y, float angle) {
-		super(x, y, AnimHelper.missile);
+		super(x, y, AnimHelper.cannon);
 		this.rect.setCenterX(x);
 		this.rect.setCenterY(y);
 		this.dx = -(float) (Math.cos(angle)*speed);
@@ -39,13 +39,6 @@ public class Missile extends Entity implements GoodGuys{
 		}
 	}
 	
-	public void draw(Graphics g)
-	{
-		g.pushTransform();
-		g.rotate(rect.getCenterX(),rect.getCenterY(),angle);
-		super.draw(g);
-		g.popTransform();
-	}
 	
 	
 

@@ -19,7 +19,8 @@ public class AnimHelper {
 	public static ArrayList<Animation> healthbar;
 	public static ArrayList<Animation> endscreen;
 	public static ArrayList<Animation> tank;
-	public static ArrayList<Animation> missile;
+	public static ArrayList<Animation> turret;
+	public static ArrayList<Animation> cannon;
 	public static ArrayList<Animation> purchasebutton;
 	public static ArrayList<Animation> launchbutton;
 	public static ArrayList<Animation> upgradebutton;
@@ -95,8 +96,12 @@ public class AnimHelper {
 		tank.add(getAnimation("/res/img/entities/tank/tankR.png"));
 		tank.add(getAnimation("/res/img/entities/tank/tankL.png"));
 		
-		missile = new ArrayList<Animation>();
-		missile.add(getAnimation(new String[]{"/res/img/entities/tank/missile1.png","/res/img/entities/tank/missile2.png"},100));
+		turret = new ArrayList<Animation>();
+		turret.add(getAnimation("/res/img/entities/tank/turretR.png"));
+		turret.add(getAnimation("/res/img/entities/tank/turretL.png"));
+		
+		cannon = new ArrayList<Animation>();
+		cannon.add(getAnimation("/res/img/entities/tank/cannon.png"));
 
 		purchasebutton = new ArrayList<Animation>();
 		purchasebutton.add(getAnimation("/res/img/gui/upgradescreen/buybuttonunpressed.png"));
