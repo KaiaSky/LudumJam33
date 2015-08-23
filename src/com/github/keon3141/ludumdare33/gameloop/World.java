@@ -17,6 +17,7 @@ public class World {
 	public int height;
 	public Input input;
 	public boolean active = true;
+	public boolean endRequested = false;
 	int floorLevel;
 	Camera c;
 	

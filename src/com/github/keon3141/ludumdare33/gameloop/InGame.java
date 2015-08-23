@@ -90,6 +90,11 @@ public class InGame extends BasicGameState {
 				over = true;
 				w.setActive(false);
 			}
+		}else{
+			if(w.endRequested)
+			{
+				game.enterState(2);
+			}
 		}
 	}
 
