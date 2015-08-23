@@ -26,6 +26,7 @@ public class AnimHelper {
 	public static ArrayList<Animation> upgradebutton;
 	
 	public static ArrayList<Animation> upgradebg;
+	public static ArrayList<Animation> gamegui;
 	
 	public static void setupAnimations()
 	{
@@ -122,6 +123,9 @@ public class AnimHelper {
 		
 		upgradebg = new ArrayList<Animation>();
 		upgradebg.add(getAnimation("/res/img/gui/upgradescreen/upgradescreenbg.png"));
+		
+		gamegui = new ArrayList<Animation>();
+		gamegui.add(getAnimation("/res/img/gui/backgrounds/gui.png"));
 	}
 	
 	public static Animation getAnimation(String str)

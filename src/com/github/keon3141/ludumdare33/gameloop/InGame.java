@@ -13,6 +13,7 @@ import com.github.keon3141.ludumdare33.entity.Entity;
 import com.github.keon3141.ludumdare33.entity.Person;
 import com.github.keon3141.ludumdare33.entity.Tank;
 import com.github.keon3141.ludumdare33.entity.UFO;
+import com.github.keon3141.ludumdare33.gui.BG;
 import com.github.keon3141.ludumdare33.gui.Button;
 import com.github.keon3141.ludumdare33.gui.Crosshairs;
 import com.github.keon3141.ludumdare33.gui.EndLevelScreen;
@@ -46,12 +47,19 @@ public class InGame extends BasicGameState {
 		w.addEntity(ufo);
 		w.getC().setTarget(ufo);
 		w.addGui(new Crosshairs(0,0));
+		
+		w.addGui(new BG(AnimHelper.gamegui,0,w));
+		
 		test =new Button(0,0,AnimHelper.abortbutton);
 		w.addGui(test);
 		time = new Timer(800-128,0);
 		w.addGui(time);
 		health = new Healthbar(50,550, (UFO)ufo);
 		w.addGui(health);
+		
+		
+		
+		
 		for(int i = 0; i < 10; i++)
 		{
 			w.addEntity(new Person(rand.nextInt(800),450));
