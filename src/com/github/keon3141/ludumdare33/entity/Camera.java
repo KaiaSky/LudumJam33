@@ -59,7 +59,7 @@ public class Camera extends Entity{
 		
 		health = 1000;
 		maxhealth = 1000;
-		if(!target.equals(null))
+		if(target!=null)
 		{
 			dx = 2*(target.getRect().getCenterX()-this.getRect().getCenterX());
 			dy = 2*(target.getRect().getCenterY()-this.getRect().getCenterY());

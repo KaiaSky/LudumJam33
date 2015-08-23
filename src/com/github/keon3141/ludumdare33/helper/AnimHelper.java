@@ -20,6 +20,9 @@ public class AnimHelper {
 	public static ArrayList<Animation> endscreen;
 	public static ArrayList<Animation> tank;
 	public static ArrayList<Animation> missile;
+	public static ArrayList<Animation> purchasebutton;
+	public static ArrayList<Animation> launchbutton;
+	public static ArrayList<Animation> upgradebutton;
 	
 	public static void setupAnimations()
 	{
@@ -64,6 +67,23 @@ public class AnimHelper {
 		
 		missile = new ArrayList<Animation>();
 		missile.add(getAnimation(new String[]{"/res/img/entities/tank/missile1.png","/res/img/entities/tank/missile2.png"},100));
+
+		purchasebutton = new ArrayList<Animation>();
+		purchasebutton.add(getAnimation("/res/img/gui/upgradescreen/buybuttonunpressed.png"));
+		purchasebutton.add(getAnimation("/res/img/gui/upgradescreen/buybuttonhovered.png"));
+		purchasebutton.add(getAnimation("/res/img/gui/upgradescreen/buybuttonpressed.png"));
+		
+		launchbutton = new ArrayList<Animation>();
+		launchbutton.add(getAnimation("/res/img/gui/upgradescreen/launchunpressed.png"));
+		launchbutton.add(getAnimation("/res/img/gui/upgradescreen/launchhovered.png"));
+		launchbutton.add(getAnimation("/res/img/gui/upgradescreen/launchpressed.png"));
+		
+		upgradebutton = new ArrayList<Animation>();
+		upgradebutton.add(getAnimation("/res/img/gui/upgradescreen/buttonunpressed.png"));
+		upgradebutton.add(getAnimation("/res/img/gui/upgradescreen/buttonhovered.png"));
+		upgradebutton.add(getAnimation("/res/img/gui/upgradescreen/buttonpressed.png"));
+		upgradebutton.add(getAnimation("/res/img/gui/upgradescreen/buttonowned.png"));
+		upgradebutton.add(getAnimation("/res/img/gui/upgradescreen/buttoncantunlock.png"));
 	}
 	
 	public static Animation getAnimation(String str)

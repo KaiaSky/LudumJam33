@@ -7,6 +7,8 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
+import com.github.keon3141.ludumdare33.helper.AnimHelper;
+
 public class LudumJam33Game extends StateBasedGame {
 
     public static final int WIDTH = 800;
@@ -22,7 +24,9 @@ public class LudumJam33Game extends StateBasedGame {
 
     @Override
     public void initStatesList(GameContainer gc) throws SlickException {
-        addState(new InGame());
+        AnimHelper.setupAnimations();
+    	addState(new UpgradeScreen());
+    	addState(new InGame());
     }
 
     @Override
@@ -33,9 +37,9 @@ public class LudumJam33Game extends StateBasedGame {
         //g.setAntiAlias(true);
     }
     
-    // Main Method
     public static void begin(String[] args) {
         try {
+        	
             app = new AppGameContainer(new LudumJam33Game(TITLE + " v" + VERSION));
             app.setDisplayMode(WIDTH, HEIGHT, false);
             app.setTargetFrameRate(FPS);

@@ -12,8 +12,8 @@ public class Button extends GUIElement{
 	public boolean hovered = false;
 	public boolean clicked = false;
 	public boolean clicking = false;
-	public float clickedTime = 1f;
-	public float currentTime = 1f;
+	public float clickedTime = .1f;
+	public float currentTime = .1f;
 	
 	public Button(float x, float y, ArrayList<Animation> animations) {
 		super(x, y, animations);
@@ -60,6 +60,7 @@ public class Button extends GUIElement{
 	{
 		if(clicked)
 		{
+			System.out.println(clicked);
 			clicked = false;
 			return true;
 		}

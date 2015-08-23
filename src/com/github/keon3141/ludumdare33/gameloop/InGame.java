@@ -40,7 +40,6 @@ public class InGame extends BasicGameState {
 			throws SlickException {
 		input = container.getInput();
 		rand = new Random();
-		AnimHelper.setupAnimations();
 		
 		w = new World(1600,800,500,input);
 		Entity ufo  = new UFO(0,0);
