@@ -88,6 +88,12 @@ public class World {
 			for(int i = 0; i<entityList.size(); i++)
 			{
 				entityList.get(i).update(dt, this);
+				
+			}
+			for(int i = 0; i<entityList.size(); i++)
+			{
+				entityList.get(i).checkDead(this);
+				
 			}
 			for(int i = 0; i<guiList.size(); i++)
 			{

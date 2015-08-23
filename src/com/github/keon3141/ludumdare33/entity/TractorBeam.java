@@ -6,33 +6,39 @@ import org.newdawn.slick.Animation;
 
 import com.github.keon3141.ludumdare33.gameloop.World;
 import com.github.keon3141.ludumdare33.helper.AnimHelper;
+import com.github.keon3141.ludumdare33.helper.PlayerDataStorage;
 
 public class TractorBeam extends Entity{
 
 	UFO parent;
+	public float tractorForce = PlayerDataStorage.tractorForce;
 	
 	public TractorBeam(UFO parentship) {
 		super(0,0, AnimHelper.beam);
 		parent = parentship;
+		health = 1000;
+		maxhealth = 1000;
 	}
 	
 	public void update(float dt, World w)
 	{
-		this.rect.setCenterX(parent.rect.getCenterX());
-		this.rect.setY(parent.rect.getMaxY());
+		health = 1000;
+		maxhealth = 1000;
+		this.getRect().setCenterX(parent.getRect().getCenterX());
+		this.getRect().setY(parent.getRect().getMaxY());
 		ArrayList<Entity> l = w.getEntityList();
 		for(int i = 0; i < l.size(); i++)
 		{
 			Entity e = l.get(i);
 			if(e instanceof Person)
 			{
-				if(e.rect.intersects(this.rect))
+				if(e.getRect().intersects(this.getRect()))
 				{
 					((Person)e).onGround=false;
 					((Person)e).afraid=true;
-					e.dy -= dt*100;
+					e.dy -= dt*tractorForce;
 					e.dy -= dt*e.dy * .1;
-					e.dx += dt*10 *(this.rect.getCenterX()-e.rect.getCenterX());
+					e.dx += dt*tractorForce/10 *(this.getRect().getCenterX()-e.getRect().getCenterX());
 					e.dx -= dt*e.dx * 2;
 				}
 			}

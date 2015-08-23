@@ -14,10 +14,12 @@ public class Camera extends Entity{
 	
 	public Camera(Entity target) {
 		super(target.getX(), target.getY(), null);
-		this.rect.setCenterX(target.rect.getCenterX());
-		this.rect.setCenterY(target.rect.getCenterY());
-		this.rect.setSize(LudumJam33Game.WIDTH, LudumJam33Game.HEIGHT);
+		this.getRect().setCenterX(target.getRect().getCenterX());
+		this.getRect().setCenterY(target.getRect().getCenterY());
+		this.getRect().setSize(LudumJam33Game.WIDTH, LudumJam33Game.HEIGHT);
 		this.target = target;
+		health = 1000;
+		maxhealth = 1000;
 		
 	}
 	
@@ -52,24 +54,28 @@ public class Camera extends Entity{
 	
 	public void update(float dt, World w)
 	{
+		
 		super.update(dt, w);
+		
+		health = 1000;
+		maxhealth = 1000;
 		if(!target.equals(null))
 		{
-			dx = 2*(target.rect.getCenterX()-this.rect.getCenterX());
-			dy = 2*(target.rect.getCenterY()-this.rect.getCenterY());
+			dx = 2*(target.getRect().getCenterX()-this.getRect().getCenterX());
+			dy = 2*(target.getRect().getCenterY()-this.getRect().getCenterY());
 		}
-		if(this.rect.getMinX() < 0)
+		if(this.getRect().getMinX() < 0)
 		{
-			this.rect.setX(0);
-		}if(this.rect.getMinY() < 0)
+			this.getRect().setX(0);
+		}if(this.getRect().getMinY() < 0)
 		{
-			this.rect.setY(0);
-		}if(this.rect.getMaxX() > w.width)
+			this.getRect().setY(0);
+		}if(this.getRect().getMaxX() > w.width)
 		{
-			this.rect.setX(w.width-this.rect.getWidth());
-		}if(this.rect.getMaxY() > w.height)
+			this.getRect().setX(w.width-this.getRect().getWidth());
+		}if(this.getRect().getMaxY() > w.height)
 		{
-			this.rect.setY(w.height-this.rect.getHeight());
+			this.getRect().setY(w.height-this.getRect().getHeight());
 		}
 	}
 

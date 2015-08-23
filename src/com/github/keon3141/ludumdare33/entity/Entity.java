@@ -10,19 +10,23 @@ import com.github.keon3141.ludumdare33.gameloop.World;
 
 public class Entity {
 
-	protected Rectangle rect;
+	public Rectangle rect;
 	
 	protected ArrayList<Animation> animations;
 	protected int currentanimation;
 	
 	protected float dx;
 	protected float dy;
+
+	protected int health = 1;
+	protected int maxhealth = 1;
+	
 	protected boolean dead = false;
 	
 	public Entity(float x, float y, ArrayList<Animation> animations)
 	{
 		this.animations = animations;
-		rect = new Rectangle(x, y, this.animations.get(0).getWidth(), this.animations.get(0).getHeight());
+		setRect(new Rectangle(x, y, this.animations.get(0).getWidth(), this.animations.get(0).getHeight()));
 		dx = 0;
 		dy = 0;
 		currentanimation = 0;
@@ -30,10 +34,20 @@ public class Entity {
 	
 	public Entity(float x, float y,float width,float height)
 	{
-		rect = new Rectangle(x, y, width, height);
+		setRect(new Rectangle(x, y, width, height));
 		dx = 0;
 		dy = 0;
 		currentanimation = 0;
+	}
+	
+	public void takeDamage(int damage)
+	{
+		health -= damage;
+		System.out.println(this+" "+health);
+		if(health <= 0)
+		{
+			die();
+		}
 	}
 	
 	public void die()
@@ -44,6 +58,10 @@ public class Entity {
 	public void update(float dt, World w)
 	{
 		setRelativeXY(dt*dx, dt*dy);
+	}
+	
+	public void checkDead(World w)
+	{
 		if (dead)
 		{
 			w.removeEntity(this);
@@ -60,16 +78,16 @@ public class Entity {
 	}
 	
 	public void setRelativeXY(float dx,float dy){
-		rect.setX(rect.getX()+dx);
-		rect.setY(rect.getY()+dy);
+		getRect().setX(getRect().getX()+dx);
+		getRect().setY(getRect().getY()+dy);
 	}
 	
 	public float getX(){ // Left
-		return rect.getX();
+		return getRect().getX();
 	}
 	
 	public float getY(){ // Top
-		return rect.getY();
+		return getRect().getY();
 	}
 
 	public Animation getAnimation() {
@@ -85,11 +103,11 @@ public class Entity {
 	}
 	
 	public void setX(float newX){
-		rect.setCenterX(newX);
+		getRect().setCenterX(newX);
 	}
 	
 	public void setY(float newY){
-		rect.setCenterY(newY);
+		getRect().setCenterY(newY);
 	}
 
 	public void addAnimation(Animation animation) {
@@ -112,6 +130,30 @@ public class Entity {
 
 	public void setDy(float dy) {
 		this.dy = dy;
+	}
+
+	public int getHealth() {
+		return health;
+	}
+
+	public int getMaxhealth() {
+		return maxhealth;
+	}
+
+	public void setHealth(int health) {
+		this.health = health;
+	}
+
+	public void setMaxhealth(int maxhealth) {
+		this.maxhealth = maxhealth;
+	}
+
+	public Rectangle getRect() {
+		return rect;
+	}
+
+	public void setRect(Rectangle rect) {
+		this.rect = rect;
 	}
 	
 }

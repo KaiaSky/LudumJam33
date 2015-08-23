@@ -6,7 +6,7 @@ import com.github.keon3141.ludumdare33.gameloop.InGame;
 import com.github.keon3141.ludumdare33.gameloop.World;
 import com.github.keon3141.ludumdare33.helper.AnimHelper;
 
-public class Person extends Entity {
+public class Person extends Entity implements GoodGuys {
 
 	public int speed = 40;
 	boolean onGround;
@@ -62,13 +62,13 @@ public class Person extends Entity {
 		}
 		else{
 			dy += 60*dt;
-			if(this.rect.getMaxY()>w.getFloorLevel())
+			if(this.getRect().getMaxY()>w.getFloorLevel())
 			{
 				onGround = true;
-				this.rect.setY(w.getFloorLevel()-this.rect.getHeight());
+				this.getRect().setY(w.getFloorLevel()-this.getRect().getHeight());
 			}
 		}
-		if(this.rect.getMinX() < 0 || this.rect.getMaxX() > w.width)
+		if(this.getRect().getMinX() < 0 || this.getRect().getMaxX() > w.width)
 		{
 			direction = !direction;
 			dx = -dx;

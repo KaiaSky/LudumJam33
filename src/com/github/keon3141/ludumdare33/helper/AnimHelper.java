@@ -18,6 +18,8 @@ public class AnimHelper {
 	public static ArrayList<Animation> timer;
 	public static ArrayList<Animation> healthbar;
 	public static ArrayList<Animation> endscreen;
+	public static ArrayList<Animation> tank;
+	public static ArrayList<Animation> missile;
 	
 	public static void setupAnimations()
 	{
@@ -55,6 +57,13 @@ public class AnimHelper {
 		endscreen.add(getAnimation("/res/img/gui/endlevelscreens/time.png"));
 		endscreen.add(getAnimation("/res/img/gui/endlevelscreens/shipdestroyed.png"));
 		endscreen.add(getAnimation("/res/img/gui/endlevelscreens/abort.png"));
+		
+		tank = new ArrayList<Animation>();
+		tank.add(getAnimation("/res/img/entities/tank/tankR.png"));
+		tank.add(getAnimation("/res/img/entities/tank/tankL.png"));
+		
+		missile = new ArrayList<Animation>();
+		missile.add(getAnimation(new String[]{"/res/img/entities/tank/missile1.png","/res/img/entities/tank/missile2.png"},100));
 	}
 	
 	public static Animation getAnimation(String str)

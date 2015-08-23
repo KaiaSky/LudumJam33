@@ -11,6 +11,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import com.github.keon3141.ludumdare33.entity.Entity;
 import com.github.keon3141.ludumdare33.entity.Person;
+import com.github.keon3141.ludumdare33.entity.Tank;
 import com.github.keon3141.ludumdare33.entity.UFO;
 import com.github.keon3141.ludumdare33.gui.Button;
 import com.github.keon3141.ludumdare33.gui.Crosshairs;
@@ -54,8 +55,9 @@ public class InGame extends BasicGameState {
 		w.addGui(health);
 		for(int i = 0; i < 100; i++)
 		{
-			w.addEntity(new Person(rand.nextInt(800),450));
+			//w.addEntity(new Person(rand.nextInt(800),450));
 		}
+		w.addEntity(new Tank(rand.nextInt(800),500));
 		
 		
 	}

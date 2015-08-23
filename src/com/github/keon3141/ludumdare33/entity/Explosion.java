@@ -12,38 +12,50 @@ public class Explosion extends Entity{
 
 	public float lifetime = 0.25f;
 	public Circle scareRadius;
+	public int damage;
+	private boolean unexploded = true;
 	
-	public Explosion(float xCenter, float yCenter) {
+	public Explosion(float xCenter, float yCenter, int damage) {
 		super(xCenter, xCenter, AnimHelper.explosion);
-		rect.setCenterX(xCenter);
-		rect.setCenterY(yCenter);
-		scareRadius = new Circle(rect.getCenterX(), rect.getCenterY(), rect.getWidth()*2);
+		getRect().setCenterX(xCenter);
+		getRect().setCenterY(yCenter);
+		scareRadius = new Circle(getRect().getCenterX(), getRect().getCenterY(), getRect().getWidth()*2);
+		this.damage = damage;
+		health = 1000;
+		maxhealth = 1000;
 	}
 	
 	public void update(float dt, World w)
 	{
 		super.update(dt, w);
-		lifetime -= dt;
-		if(lifetime < 0)
-		{	
-			this.die();
+		health = 1000;
+		maxhealth = 1000;
+		if(unexploded)
+		{
+			unexploded = false;
 			ArrayList<Entity> l = w.getEntityList();
 			for(int i = 0; i < l.size(); i++)
 			{
 				Entity e = l.get(i);
-				if(e instanceof Person)
+				if(e instanceof GoodGuys)
 				{
-					if(e.rect.intersects(this.rect))
+					if(e.getRect().intersects(this.getRect()))
 					{
-						e.die();
+						e.takeDamage(damage);
 					}
-					if(e.rect.intersects(this.scareRadius))
+					if(e instanceof Person && e.getRect().intersects(this.scareRadius))
 					{
 						((Person)e).afraid = true;
-						((Person)e).direction = this.rect.getCenterX()<e.rect.getCenterX();
+						((Person)e).direction = this.getRect().getCenterX()<e.getRect().getCenterX();
 					}
 				}
 			}
+		}
+		
+		lifetime -= dt;
+		if(lifetime < 0)
+		{	
+			this.die();
 		}
 	}
 

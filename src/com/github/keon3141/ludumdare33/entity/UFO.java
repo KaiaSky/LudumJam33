@@ -9,19 +9,20 @@ import org.newdawn.slick.Input;
 
 import com.github.keon3141.ludumdare33.gameloop.World;
 import com.github.keon3141.ludumdare33.helper.AnimHelper;
+import com.github.keon3141.ludumdare33.helper.PlayerDataStorage;
 import com.github.keon3141.ludumdare33.helper.RectangleHelper;
 
-public class UFO extends Entity{
+public class UFO extends Entity implements PlayerStuff{
 	
 	float DRAG = 1f;
-	float THRUST = 240f;
+	float THRUST = PlayerDataStorage.thrustPower;
 	TractorBeam beam;
-	public int health = 100;
-	public int maxhealth = 100;
 	public int captives = 0;
 	
 	public UFO(float newx, float newy) {
 		super(newx, newy,AnimHelper.ufo);
+		health = PlayerDataStorage.hullIntegrity;
+		maxhealth = PlayerDataStorage.hullIntegrity;
 	}
 	
 	
@@ -82,7 +83,7 @@ public class UFO extends Entity{
 			Entity e = l.get(i);
 			if(e instanceof Person && ((Person)e).afraid&&!((Person)e).onGround)
 			{                   
-				if(RectangleHelper.contains(this.rect, e.rect))
+				if(RectangleHelper.contains(this.getRect(), e.getRect()))
 				{
 					System.out.print("DIE");
 					e.die(); //rip
@@ -92,18 +93,18 @@ public class UFO extends Entity{
 			}
 		}
 		
-		if(this.rect.getMinX() < 0)
+		if(this.getRect().getMinX() < 0)
 		{
-			this.rect.setX(0);
-		}if(this.rect.getMinY() < 0)
+			this.getRect().setX(0);
+		}if(this.getRect().getMinY() < 0)
 		{
-			this.rect.setY(0);
-		}if(this.rect.getMaxX() > w.width)
+			this.getRect().setY(0);
+		}if(this.getRect().getMaxX() > w.width)
 		{
-			this.rect.setX(w.width-this.rect.getWidth());
-		}if(this.rect.getMaxY()+75 > w.getFloorLevel())
+			this.getRect().setX(w.width-this.getRect().getWidth());
+		}if(this.getRect().getMaxY()+75 > w.getFloorLevel())
 		{
-			dy-=THRUST*2* (this.rect.getMaxY()+75- w.getFloorLevel())/35*dt;
+			dy-=THRUST*2* (this.getRect().getMaxY()+75- w.getFloorLevel())/35*dt;
 		}
 	}
 

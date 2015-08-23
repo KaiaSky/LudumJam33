@@ -21,8 +21,8 @@ public class Healthbar extends GUIElement{
 	
 	public void update(float dt, World w)
 	{
-		maxHealth = target.maxhealth;
-		health = target.health;
+		maxHealth = target.getMaxhealth();
+		health = target.getHealth();
 		full = 1.0f*health/maxHealth;
 		if(health<=0)
 		{

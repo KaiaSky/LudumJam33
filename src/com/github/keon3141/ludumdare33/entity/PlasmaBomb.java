@@ -6,10 +6,12 @@ import org.newdawn.slick.Animation;
 
 import com.github.keon3141.ludumdare33.gameloop.World;
 import com.github.keon3141.ludumdare33.helper.AnimHelper;
+import com.github.keon3141.ludumdare33.helper.PlayerDataStorage;
 
-public class PlasmaBomb extends Entity{
+public class PlasmaBomb extends Entity implements PlayerStuff{
 
-	public static float SPEED = 300;
+	public float SPEED = PlayerDataStorage.plasmaSpeed;
+	public int damage = PlayerDataStorage.plasmaDamage;
 	
 	public PlasmaBomb(float newx, float newy,float targetX, float targetY) {
 		super(newx, newy, AnimHelper.plasma);
@@ -26,29 +28,32 @@ public class PlasmaBomb extends Entity{
 		for(int i = 0; i < l.size(); i++)
 		{
 			Entity e = l.get(i);
-			if(e instanceof Person)
+			if(e instanceof GoodGuys)
 			{
-				if(e.rect.intersects(this.rect))
+				if(e.getRect().intersects(this.getRect()))
 				{
 					this.die();
-					w.addEntity(new Explosion(rect.getCenterX(), rect.getCenterY()));
+					w.addEntity(new Explosion(getRect().getCenterX(), getRect().getCenterY(), damage));
+					return;
 				}
 			}
 		}
 		
-		if(this.rect.getMinX() < 0)
+		if(this.getRect().getMinX() < 0)
 		{
 			this.die();
-		}if(this.rect.getMinY() < 0)
+		}if(this.getRect().getMinY() < 0)
 		{
 			this.die();
-		}if(this.rect.getMaxX() > w.width)
+		}if(this.getRect().getMaxX() > w.width)
 		{
 			this.die();
-		}if(this.rect.getMaxY() > w.getFloorLevel())
+		}if(this.getRect().getMaxY() > w.getFloorLevel())
 		{
 			this.die();
-			w.addEntity(new Explosion(rect.getCenterX(), rect.getCenterY()));
+			System.out.println("hitfloor"+this);
+			w.addEntity(new Explosion(getRect().getCenterX(), getRect().getCenterY(), damage));
+			return;
 		}
 	}
 
