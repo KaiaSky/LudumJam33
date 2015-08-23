@@ -15,6 +15,8 @@ public class AnimHelper {
 	public static ArrayList<Animation> explosion;
 	public static ArrayList<Animation> abortbutton;
 	public static ArrayList<Animation> crosshairs;
+	public static ArrayList<Animation> timer;
+	public static ArrayList<Animation> healthbar;
 	
 	public static void setupAnimations()
 	{
@@ -40,6 +42,13 @@ public class AnimHelper {
 		
 		crosshairs = new ArrayList<Animation>();
 		crosshairs.add(getAnimation("/res/img/crosshairs.png"));
+		
+		timer = new ArrayList<Animation>();
+		timer.add(getAnimation("/res/img/gui/timer/timerbase.png"));
+		
+		healthbar = new ArrayList<Animation>();
+		healthbar.add(getAnimation("/res/img/gui/healthbar/empty.png"));
+		healthbar.add(getAnimation("/res/img/gui/healthbar/full.png"));
 	}
 	
 	public static Animation getAnimation(String str)

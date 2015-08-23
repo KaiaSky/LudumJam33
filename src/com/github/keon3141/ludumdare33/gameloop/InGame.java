@@ -1,13 +1,13 @@
 package com.github.keon3141.ludumdare33.gameloop;
 
+import java.awt.Font;
 import java.util.Random;
 
-import org.newdawn.slick.Animation;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -16,6 +16,8 @@ import com.github.keon3141.ludumdare33.entity.Person;
 import com.github.keon3141.ludumdare33.entity.UFO;
 import com.github.keon3141.ludumdare33.gui.Button;
 import com.github.keon3141.ludumdare33.gui.Crosshairs;
+import com.github.keon3141.ludumdare33.gui.Healthbar;
+import com.github.keon3141.ludumdare33.gui.Timer;
 import com.github.keon3141.ludumdare33.helper.AnimHelper;
 
 public class InGame extends BasicGameState {
@@ -44,6 +46,8 @@ public class InGame extends BasicGameState {
 		w.addGui(new Crosshairs(0,0));
 		test =new Button(0,0,AnimHelper.abortbutton);
 		w.addGui(test);
+		w.addGui(new Timer(800-128,0));
+		w.addGui(new Healthbar(50,550, (UFO)ufo));
 		for(int i = 0; i < 100; i++)
 		{
 			w.addEntity(new Person(rand.nextInt(800),450));

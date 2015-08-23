@@ -16,6 +16,8 @@ public class UFO extends Entity{
 	float DRAG = 1f;
 	float THRUST = 240f;
 	TractorBeam beam;
+	public int health = 100;
+	public int maxhealth = 100;
 	
 	public UFO(float newx, float newy) {
 		super(newx, newy,AnimHelper.ufo);
@@ -83,6 +85,7 @@ public class UFO extends Entity{
 				{
 					System.out.print("DIE");
 					e.die(); //rip
+					health-=2;
 				}
 			}
 		}
