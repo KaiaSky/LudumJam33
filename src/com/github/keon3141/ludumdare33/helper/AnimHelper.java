@@ -63,13 +63,13 @@ public class AnimHelper {
 		person.add(getAnimation("/res/img/entities/person/whiteman/leftair.png"));
 		
 		beam = new ArrayList<Animation>();
-		beam.add(getAnimation("/res/img/tractorbeam.png"));
+		beam.add(getAnimation(new String[]{"/res/img/entities/tractorbeam/beam1.png","/res/img/entities/tractorbeam/beam2.png"},50));
 		
 		plasma = new ArrayList<Animation>();
-		plasma.add(getAnimation("/res/img/plasmabolt.png"));
+		plasma.add(getAnimation(new String[]{"/res/img/entities/plasma/plasma1.png","/res/img/entities/plasma/plasma2.png","/res/img/entities/plasma/plasma3.png","/res/img/entities/plasma/plasma4.png"},50));
 		
 		explosion = new ArrayList<Animation>();
-		explosion.add(getAnimation("/res/img/explosion.png"));
+		explosion.add(getAnimation(new String[]{"/res/img/entities/explosion/1.png","/res/img/entities/explosion/2.png","/res/img/entities/explosion/3.png","/res/img/entities/explosion/4.png","/res/img/entities/explosion/5.png","/res/img/entities/explosion/6.png"},43));
 		
 		abortbutton = new ArrayList<Animation>();
 		abortbutton.add(getAnimation("/res/img/gui/abortbutton/abortunpressed.png"));
