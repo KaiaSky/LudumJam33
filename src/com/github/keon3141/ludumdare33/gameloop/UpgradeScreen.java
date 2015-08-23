@@ -50,6 +50,11 @@ public class UpgradeScreen extends BasicGameState{
 			throws SlickException {
 		float dt = delta/1000.0f;
 		w.update(dt);
+		if(launchinvasion.pollClicked())
+		{
+			game.getState(1).init(container, game);
+			game.enterState(1);
+		}
 	}
 
 	@Override

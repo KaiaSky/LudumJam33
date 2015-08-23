@@ -1,5 +1,7 @@
 package com.github.keon3141.ludumdare33.gui;
 
+import java.util.Arrays;
+
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -38,6 +40,7 @@ public class UpgradeButton extends GUIElement{
 		this.prereq = prereq;
 		this.parent = parent;
 		this.cost = cost;
+		bought = PlayerDataStorage.upgradesBought[id];
 	}
 	
 	public void draw(Graphics g)

@@ -28,7 +28,7 @@ public class InGame extends BasicGameState {
 	Button test;
 	Healthbar health;
 	Timer time;
-	boolean over = false;
+	boolean over;
 	
 	@Override
 	public int getID() {
@@ -40,7 +40,7 @@ public class InGame extends BasicGameState {
 			throws SlickException {
 		input = container.getInput();
 		rand = new Random();
-		
+		over = false;
 		w = new World(1600,800,500,input);
 		Entity ufo  = new UFO(0,0);
 		w.addEntity(ufo);
@@ -94,6 +94,7 @@ public class InGame extends BasicGameState {
 		}else{
 			if(w.endRequested)
 			{
+				game.getState(2).init(container, game);
 				game.enterState(2);
 			}
 		}
