@@ -13,6 +13,7 @@ public class Person extends Entity implements GoodGuys {
 	boolean afraid;
 	boolean direction; // right true
 	float directionTime;
+	int ethnicity;
 	
 	
 	public Person(float x, float y)
@@ -22,11 +23,14 @@ public class Person extends Entity implements GoodGuys {
 		afraid = false;
 		direction = InGame.rand.nextBoolean();
 		directionTime = InGame.rand.nextInt(300)/10.0f;
+		ethnicity = 0;//InGame.rand.nextInt(4);
 	}
 	
 	public void update(float dt, World w)
 	{
 		super.update(dt, w);
+		
+		
 		if(onGround)
 		{
 			dy = 0;
@@ -34,10 +38,12 @@ public class Person extends Entity implements GoodGuys {
 			{
 				if(direction)
 				{
+					this.currentanimation = 0+ethnicity*6;
 					this.dx = speed;
 				}
 				else
 				{
+					this.currentanimation = 1+ethnicity*6;
 					this.dx = -speed;
 				}
 				directionTime-=dt;
@@ -51,10 +57,12 @@ public class Person extends Entity implements GoodGuys {
 			{
 				if(direction)
 				{
+					this.currentanimation = 2+ethnicity*6;
 					this.dx = speed*4;
 				}
 				else
 				{
+					this.currentanimation = 3+ethnicity*6;
 					this.dx = -speed*4;
 				}
 			}
@@ -67,6 +75,13 @@ public class Person extends Entity implements GoodGuys {
 				onGround = true;
 				this.getRect().setY(w.getFloorLevel()-this.getRect().getHeight());
 			}
+			if(direction)
+			{
+				this.currentanimation = 4+ethnicity*6;
+			}else{
+				this.currentanimation = 5+ethnicity*6;
+			}
+			
 		}
 		if(this.getRect().getMinX() < 0 || this.getRect().getMaxX() > w.width)
 		{

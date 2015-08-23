@@ -29,10 +29,17 @@ public class AnimHelper {
 	public static void setupAnimations()
 	{
 		ufo = new ArrayList<Animation>();
-		ufo.add(getAnimation("/res/img/test.png"));
+		ufo.add(getAnimation("/res/img/entities/ufo/ufostationary.png"));
+		ufo.add(getAnimation("/res/img/entities/ufo/uforight.png"));
+		ufo.add(getAnimation("/res/img/entities/ufo/ufoleft.png"));
 		
 		person = new ArrayList<Animation>();
-		person.add(getAnimation("/res/img/human.png"));
+		person.add(getAnimation(new String[]{"/res/img/entities/person/blackwoman/right1.png","/res/img/entities/person/blackwoman/right2.png","/res/img/entities/person/blackwoman/right3.png","/res/img/entities/person/blackwoman/right4.png"},200));
+		person.add(getAnimation(new String[]{"/res/img/entities/person/blackwoman/left1.png","/res/img/entities/person/blackwoman/left2.png","/res/img/entities/person/blackwoman/left3.png","/res/img/entities/person/blackwoman/left4.png"},200));
+		person.add(getAnimation(new String[]{"/res/img/entities/person/blackwoman/right1.png","/res/img/entities/person/blackwoman/right2.png","/res/img/entities/person/blackwoman/right3.png","/res/img/entities/person/blackwoman/right4.png"},100));
+		person.add(getAnimation(new String[]{"/res/img/entities/person/blackwoman/left1.png","/res/img/entities/person/blackwoman/left2.png","/res/img/entities/person/blackwoman/left3.png","/res/img/entities/person/blackwoman/left4.png"},100));
+		person.add(getAnimation("/res/img/entities/person/blackwoman/rightair.png"));
+		person.add(getAnimation("/res/img/entities/person/blackwoman/leftair.png"));
 		
 		beam = new ArrayList<Animation>();
 		beam.add(getAnimation("/res/img/tractorbeam.png"));

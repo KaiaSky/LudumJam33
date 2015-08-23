@@ -106,6 +106,17 @@ public class UFO extends Entity implements PlayerStuff{
 		{
 			dy-=THRUST*2* (this.getRect().getMaxY()+75- w.getFloorLevel())/35*dt;
 		}
+		
+		if(dx>150)
+		{
+			this.currentanimation=1;
+		}else if(dx<-150)
+		{
+			this.currentanimation=2;
+		}else
+		{
+			this.currentanimation=0;
+		}
 	}
 
 }
