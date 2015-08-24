@@ -13,6 +13,7 @@ public class World {
 	
 	ArrayList<Entity> entityList;
 	ArrayList<GUIElement> guiList;
+	ArrayList<GUIElement> bgList;
 	public int width;
 	public int height;
 	public Input input;
@@ -27,6 +28,7 @@ public class World {
 	{
 		entityList = new ArrayList<Entity>();
 		guiList = new ArrayList<GUIElement>();
+		bgList = new ArrayList<GUIElement>();
 		this.width=width;
 		this.height=height;
 		this.input = input;
@@ -53,6 +55,11 @@ public class World {
 	public void addGui(GUIElement g)
 	{
 		guiList.add(g);
+	}
+	
+	public void addBG(GUIElement g)
+	{
+		bgList.add(g);
 	}
 	
 	public void addEntity(Entity e)
@@ -125,6 +132,10 @@ public class World {
 	
 	public void draw(Graphics g)
 	{
+		for(int i = 0; i<bgList.size(); i++)
+		{
+			bgList.get(i).draw(g);
+		}
 		c.pushTransform(g);
 		for(int i = 0; i<entityList.size(); i++)
 		{

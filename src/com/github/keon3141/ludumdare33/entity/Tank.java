@@ -17,8 +17,9 @@ public class Tank extends Entity implements GoodGuys{
 	boolean readytofire = true;
 	boolean hasInit = false;
 	boolean direction;
+	boolean onGround = false;
 	float directionTime;
-	float speed = 0;
+	float speed = 80;
 	Entity target;
 	ArrayList<Animation> turret;
 	int turretanimation;
@@ -67,6 +68,15 @@ public class Tank extends Entity implements GoodGuys{
 				}
 			}
 			hasInit = true;
+		}
+		if(!onGround);
+		{
+			dy += 60*dt;
+			if(this.getRect().getMaxY()>w.getFloorLevel())
+			{
+				onGround = true;
+				this.getRect().setY(w.getFloorLevel()-this.getRect().getHeight());
+			}
 		}
 		
 		if(direction)

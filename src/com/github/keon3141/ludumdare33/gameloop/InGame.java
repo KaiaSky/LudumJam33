@@ -46,6 +46,12 @@ public class InGame extends BasicGameState {
 		Entity ufo  = new UFO(0,0);
 		w.addEntity(ufo);
 		w.getC().setTarget(ufo);
+		
+		w.addBG(new BG(AnimHelper.sky,0,w));
+		w.addBG(new BG(AnimHelper.farhills,.25f,w));
+		w.addBG(new BG(AnimHelper.hillsfront,.5f,w));
+		w.addBG(new BG(AnimHelper.frontbuildings,1,w));
+		
 		w.addGui(new Crosshairs(0,0));
 		
 		w.addGui(new BG(AnimHelper.gamegui,0,w));
@@ -64,7 +70,7 @@ public class InGame extends BasicGameState {
 		{
 			w.addEntity(new Person(rand.nextInt(800),450));
 		}
-		w.addEntity(new Tank(rand.nextInt(800),500));
+		w.addEntity(new Tank(rand.nextInt(800),450));
 		
 		
 	}

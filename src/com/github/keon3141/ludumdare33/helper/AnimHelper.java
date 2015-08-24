@@ -27,6 +27,11 @@ public class AnimHelper {
 	
 	public static ArrayList<Animation> upgradebg;
 	public static ArrayList<Animation> gamegui;
+	public static ArrayList<Animation> frontbuildings;
+	public static ArrayList<Animation> hillsfront;
+	public static ArrayList<Animation> farhills;
+	public static ArrayList<Animation> sky;
+	
 	
 	public static void setupAnimations()
 	{
@@ -126,6 +131,18 @@ public class AnimHelper {
 		
 		gamegui = new ArrayList<Animation>();
 		gamegui.add(getAnimation("/res/img/gui/backgrounds/gui.png"));
+		
+		frontbuildings = new ArrayList<Animation>();
+		frontbuildings.add(getAnimation("/res/img/gui/backgrounds/1xparalax.png"));
+		
+		hillsfront = new ArrayList<Animation>();
+		hillsfront.add(getAnimation("/res/img/gui/backgrounds/halfparalax.png"));
+		
+		farhills = new ArrayList<Animation>();
+		farhills.add(getAnimation("/res/img/gui/backgrounds/quarterparalax.png"));
+		
+		sky = new ArrayList<Animation>();
+		sky.add(getAnimation("/res/img/gui/backgrounds/sky.png"));
 	}
 	
 	public static Animation getAnimation(String str)
