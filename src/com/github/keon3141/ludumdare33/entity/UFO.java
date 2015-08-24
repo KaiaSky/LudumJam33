@@ -44,6 +44,8 @@ public class UFO extends Entity implements PlayerStuff{
 	{
 		super.update(dt, w);
 		
+		w.moveEntityOrder(this, w.getEntityList().size()-1);
+		
 		if(!initialized)
 		{
 			initialized = true;

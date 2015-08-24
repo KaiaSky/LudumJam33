@@ -42,8 +42,11 @@ public class TractorBeam extends Entity{
 			{
 				if(e.getRect().intersects(this.getRect()))
 				{
+					if(((Person)e).onGround)
+					{
+						((Person)e).fear();
+					}
 					((Person)e).onGround=false;
-					((Person)e).fear();
 					e.dy -= dt*tractorForce;
 					e.dy -= dt*e.dy * .1;
 					e.dx += dt*tractorForce/10 *(this.getRect().getCenterX()-e.getRect().getCenterX());

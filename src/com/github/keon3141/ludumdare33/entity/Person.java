@@ -96,15 +96,6 @@ public class Person extends Entity implements GoodGuys {
 			}
 			else //Afraid
 			{
-				if(screamTime>0)
-				{
-					screamTime -=dt;
-					if(screamTime<=0)
-					{
-						float pitch = 0.7f + InGame.rand.nextInt(6)/10.0f;
-						SoundHelper.getScream().play(pitch, 0.3f);
-					}
-				}
 				if(direction)
 				{
 					this.currentanimation = 2+ethnicity*6;
@@ -138,6 +129,16 @@ public class Person extends Entity implements GoodGuys {
 		{
 			direction = !direction;
 			dx = -dx;
+		}
+		
+		if(afraid&& screamTime>0)
+		{
+			screamTime -=dt;
+			if(screamTime<=0)
+			{
+				float pitch = 0.7f + InGame.rand.nextInt(6)/10.0f;
+				SoundHelper.getScream().play(pitch, 0.3f);
+			}
 		}
 	}
 	

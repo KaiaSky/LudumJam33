@@ -11,8 +11,6 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import com.github.keon3141.ludumdare33.entity.Entity;
 import com.github.keon3141.ludumdare33.entity.LevelSpawner;
-import com.github.keon3141.ludumdare33.entity.Person;
-import com.github.keon3141.ludumdare33.entity.Tank;
 import com.github.keon3141.ludumdare33.entity.UFO;
 import com.github.keon3141.ludumdare33.gui.BG;
 import com.github.keon3141.ludumdare33.gui.Button;
@@ -46,7 +44,7 @@ public class InGame extends BasicGameState {
 		rand = new Random();
 		over = false;
 		w = new World(1600,800,500,input);
-		ufo  = new UFO(0,0);
+		ufo  = new UFO(800,100);
 		w.addEntity(ufo);
 		w.getC().setTarget(ufo);
 		
