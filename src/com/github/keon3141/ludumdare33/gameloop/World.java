@@ -36,6 +36,14 @@ public class World {
 		c = new Camera(0,0);
 	}
 	
+	public void close()
+	{
+		for(int i = 0; i < entityList.size(); i ++)
+		{
+			entityList.get(i).die();
+		}
+	}
+	
 	public int getFloorLevel() {
 		return floorLevel;
 	}

@@ -5,6 +5,7 @@ import org.newdawn.slick.Animation;
 import com.github.keon3141.ludumdare33.gameloop.InGame;
 import com.github.keon3141.ludumdare33.gameloop.World;
 import com.github.keon3141.ludumdare33.helper.AnimHelper;
+import com.github.keon3141.ludumdare33.helper.SoundHelper;
 
 public class Person extends Entity implements GoodGuys {
 
@@ -14,6 +15,7 @@ public class Person extends Entity implements GoodGuys {
 	boolean direction; // right true
 	float directionTime;
 	int ethnicity;
+	float screamTime = 0;
 	
 	
 	public Person(float x, float y)
@@ -24,6 +26,12 @@ public class Person extends Entity implements GoodGuys {
 		direction = InGame.rand.nextBoolean();
 		directionTime = InGame.rand.nextInt(300)/10.0f;
 		ethnicity =InGame.rand.nextInt(4);
+	}
+	
+	public void fear()
+	{
+		afraid = true;
+		screamTime = InGame.rand.nextInt(10)/100.0f;
 	}
 	
 	public void update(float dt, World w)
@@ -55,6 +63,15 @@ public class Person extends Entity implements GoodGuys {
 			}
 			else //Afraid
 			{
+				if(screamTime>0)
+				{
+					screamTime -=dt;
+					if(screamTime<=0)
+					{
+						float pitch = 0.7f + InGame.rand.nextInt(6)/10.0f;
+						SoundHelper.getScream().play(pitch, 0.3f);
+					}
+				}
 				if(direction)
 				{
 					this.currentanimation = 2+ethnicity*6;

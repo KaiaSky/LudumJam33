@@ -111,6 +111,7 @@ public class InGame extends BasicGameState {
 		}else{
 			if(w.endRequested)
 			{
+				w.close();
 				game.getState(2).init(container, game);
 				game.enterState(2);
 			}

@@ -7,6 +7,7 @@ import org.newdawn.slick.Animation;
 import com.github.keon3141.ludumdare33.gameloop.World;
 import com.github.keon3141.ludumdare33.helper.AnimHelper;
 import com.github.keon3141.ludumdare33.helper.PlayerDataStorage;
+import com.github.keon3141.ludumdare33.helper.SoundHelper;
 
 public class TractorBeam extends Entity{
 
@@ -18,6 +19,13 @@ public class TractorBeam extends Entity{
 		parent = parentship;
 		health = 1000;
 		maxhealth = 1000;
+		SoundHelper.tractorbeam.loop();
+	}
+	
+	public void die()
+	{
+		SoundHelper.tractorbeam.stop();
+		super.die();
 	}
 	
 	public void update(float dt, World w)
@@ -35,7 +43,7 @@ public class TractorBeam extends Entity{
 				if(e.getRect().intersects(this.getRect()))
 				{
 					((Person)e).onGround=false;
-					((Person)e).afraid=true;
+					((Person)e).fear();
 					e.dy -= dt*tractorForce;
 					e.dy -= dt*e.dy * .1;
 					e.dx += dt*tractorForce/10 *(this.getRect().getCenterX()-e.getRect().getCenterX());

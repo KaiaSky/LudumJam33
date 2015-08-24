@@ -28,7 +28,6 @@ public class EndLevelScreen extends GUIElement{
 		if(stationary&&w.input.isMouseButtonDown(w.input.MOUSE_LEFT_BUTTON))
 		{
 			w.endRequested = true;
-			System.out.println("bep");
 		}
 	}
 	

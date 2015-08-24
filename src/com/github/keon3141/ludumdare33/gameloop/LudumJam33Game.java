@@ -8,6 +8,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
 import com.github.keon3141.ludumdare33.helper.AnimHelper;
+import com.github.keon3141.ludumdare33.helper.SoundHelper;
 
 public class LudumJam33Game extends StateBasedGame {
 
@@ -25,6 +26,7 @@ public class LudumJam33Game extends StateBasedGame {
     @Override
     public void initStatesList(GameContainer gc) throws SlickException {
         AnimHelper.setupAnimations();
+        SoundHelper.loadSounds();
     	addState(new UpgradeScreen());
     	addState(new InGame());
     }

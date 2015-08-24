@@ -7,6 +7,7 @@ import org.newdawn.slick.Animation;
 import com.github.keon3141.ludumdare33.gameloop.World;
 import com.github.keon3141.ludumdare33.helper.AnimHelper;
 import com.github.keon3141.ludumdare33.helper.PlayerDataStorage;
+import com.github.keon3141.ludumdare33.helper.SoundHelper;
 
 public class PlasmaBomb extends Entity implements PlayerStuff{
 
@@ -19,6 +20,7 @@ public class PlasmaBomb extends Entity implements PlayerStuff{
 		float dytemp = (targetY-newy);
 		dx = (float) (dxtemp*SPEED/Math.sqrt(dxtemp*dxtemp+dytemp*dytemp));
 		dy = (float) (dytemp*SPEED/Math.sqrt(dxtemp*dxtemp+dytemp*dytemp));
+		SoundHelper.plasmashot.play();
 	}
 	
 	public void update(float dt, World w)

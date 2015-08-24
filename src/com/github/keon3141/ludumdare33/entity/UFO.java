@@ -11,6 +11,7 @@ import com.github.keon3141.ludumdare33.gameloop.World;
 import com.github.keon3141.ludumdare33.helper.AnimHelper;
 import com.github.keon3141.ludumdare33.helper.PlayerDataStorage;
 import com.github.keon3141.ludumdare33.helper.RectangleHelper;
+import com.github.keon3141.ludumdare33.helper.SoundHelper;
 
 public class UFO extends Entity implements PlayerStuff{
 	
@@ -18,18 +19,31 @@ public class UFO extends Entity implements PlayerStuff{
 	float THRUST = PlayerDataStorage.thrustPower;
 	TractorBeam beam;
 	public int captives = 0;
+	public boolean initialized = false;
 	
 	public UFO(float newx, float newy) {
 		super(newx, newy,AnimHelper.ufo);
+		
 		health = PlayerDataStorage.hullIntegrity;
 		maxhealth = PlayerDataStorage.hullIntegrity;
 	}
 	
-	
+	public void die()
+	{
+		SoundHelper.ufo.stop();
+		super.die();
+	}
 	
 	public void update(float dt, World w)
 	{
 		super.update(dt, w);
+		
+		if(!initialized)
+		{
+			initialized = true;
+			SoundHelper.ufo.loop();
+		}
+		
 		Input in = w.input;
 		boolean keysdown = false;
 		if (in.isKeyDown(in.KEY_W)||in.isKeyDown(in.KEY_UP))
@@ -81,7 +95,7 @@ public class UFO extends Entity implements PlayerStuff{
 		for(int i = 0; i < l.size(); i++)
 		{
 			Entity e = l.get(i);
-			if(e instanceof Person && ((Person)e).afraid&&!((Person)e).onGround)
+			if(e instanceof Person && !((Person)e).onGround)
 			{                   
 				if(RectangleHelper.contains(this.getRect(), e.getRect()))
 				{

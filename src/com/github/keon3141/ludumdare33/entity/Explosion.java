@@ -7,6 +7,7 @@ import org.newdawn.slick.geom.Circle;
 
 import com.github.keon3141.ludumdare33.gameloop.World;
 import com.github.keon3141.ludumdare33.helper.AnimHelper;
+import com.github.keon3141.ludumdare33.helper.SoundHelper;
 
 public class Explosion extends Entity{
 
@@ -23,6 +24,7 @@ public class Explosion extends Entity{
 		this.damage = damage;
 		health = 1000;
 		maxhealth = 1000;
+		SoundHelper.plasmaimpact.play();
 	}
 	
 	public void update(float dt, World w)
@@ -45,7 +47,7 @@ public class Explosion extends Entity{
 					}
 					if(e instanceof Person && e.getRect().intersects(this.scareRadius))
 					{
-						((Person)e).afraid = true;
+						((Person)e).fear();
 						((Person)e).direction = this.getRect().getCenterX()<e.getRect().getCenterX();
 					}
 				}

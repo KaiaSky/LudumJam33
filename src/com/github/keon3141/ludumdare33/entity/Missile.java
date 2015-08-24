@@ -6,6 +6,7 @@ import org.newdawn.slick.Graphics;
 
 import com.github.keon3141.ludumdare33.gameloop.World;
 import com.github.keon3141.ludumdare33.helper.AnimHelper;
+import com.github.keon3141.ludumdare33.helper.SoundHelper;
 
 public class Missile extends Entity implements GoodGuys{
 	float angle;
@@ -19,6 +20,7 @@ public class Missile extends Entity implements GoodGuys{
 		this.dx = -(float) (Math.cos(angle)*speed);
 		this.dy = -(float) (Math.sin(angle)*speed);
 		this.angle = (float) Math.toDegrees(angle) + 180;
+		SoundHelper.tankcannon.play();
 	}
 	
 	public void update(float dt, World w)
