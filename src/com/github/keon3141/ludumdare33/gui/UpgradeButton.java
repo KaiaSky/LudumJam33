@@ -9,6 +9,7 @@ import org.newdawn.slick.Input;
 import com.github.keon3141.ludumdare33.gameloop.World;
 import com.github.keon3141.ludumdare33.helper.AnimHelper;
 import com.github.keon3141.ludumdare33.helper.PlayerDataStorage;
+import com.github.keon3141.ludumdare33.helper.SoundHelper;
 
 public class UpgradeButton extends GUIElement{
 
@@ -88,12 +89,13 @@ public class UpgradeButton extends GUIElement{
 	public void purchase() {
 		if(PlayerDataStorage.humanCaptives>=cost && (this.prereq==-1 || this.parent.buttons.get(this.prereq).bought))
 		{
-			System.out.println(PlayerDataStorage.humanCaptives);
-			System.out.println(cost);
+			SoundHelper.purchase.play();
 			bought = true;
 			PlayerDataStorage.humanCaptives -= cost;
 			PlayerDataStorage.upgradesBought[id] = true;
 			parent.addUpgrade(id);
+		}else{
+			SoundHelper.needmoney.play();
 		}
 	}
 

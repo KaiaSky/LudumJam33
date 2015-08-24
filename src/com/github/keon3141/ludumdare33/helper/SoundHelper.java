@@ -14,6 +14,8 @@ public class SoundHelper {
 	public static Sound microsingularity;
 	public static Sound mindcontrol;
 	public static Sound wormhole;
+	public static Sound purchase;
+	public static Sound needmoney;
 	
 	public static void loadSounds()
 	{
@@ -34,6 +36,10 @@ public class SoundHelper {
 			microsingularity = new Sound("/res/sfx/microsingularity.ogg");
 			mindcontrol = new Sound("/res/sfx/mindcontrol.ogg");
 			wormhole = new Sound("/res/sfx/wormhole.ogg");
+			
+			purchase = new Sound("/res/sfx/purchase.ogg");
+			needmoney = new Sound("/res/sfx/needmoney.ogg");
+			
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
