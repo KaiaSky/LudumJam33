@@ -39,6 +39,7 @@ public class LudumJam33Game extends StateBasedGame {
             throws SlickException {
         super.preRenderState(container, g);
         g.setBackground(new Color(255,255,255)); 
+        container.setShowFPS(false);
         //g.setAntiAlias(true);
     }
     
@@ -48,7 +49,7 @@ public class LudumJam33Game extends StateBasedGame {
             app = new AppGameContainer(new LudumJam33Game(TITLE + " v" + VERSION));
             app.setDisplayMode(WIDTH, HEIGHT, false);
             app.setTargetFrameRate(FPS);
-            app.setShowFPS(true);
+            app.setVSync(true);
             app.setForceExit(false);
             app.start();
         } catch (SlickException e) {
