@@ -100,7 +100,7 @@ public class InGame extends BasicGameState {
 				{
 					PlayerDataStorage.humanCaptives += ((UFO)ufo).captives;
 					PlayerDataStorage.totalCaptives += ((UFO)ufo).captives;
-					w.addGui(new EndLevelScreen(4));
+					w.addGui(new EndLevelScreen(3));
 				}else{
 					w.addGui(new EndLevelScreen(1));
 				}

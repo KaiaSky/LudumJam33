@@ -25,6 +25,7 @@ public class UFO extends Entity implements PlayerStuff{
 	public boolean hasMindControl = PlayerDataStorage.mindcontrol;
 	public boolean mindcontrolactive = false;
 	public float mindcontroltime = 5f;
+	public boolean hasWormhole = PlayerDataStorage.wormhole;
 	
 	public UFO(float newx, float newy) {
 		super(newx, newy,AnimHelper.ufo);
@@ -145,7 +146,11 @@ public class UFO extends Entity implements PlayerStuff{
 				}
 			}
 		}
-		
+		if (in.isKeyDown(in.KEY_T)&&this.hasWormhole)
+		{
+			this.hasWormhole = false;
+			w.addEntity(new Wormhole(this.rect.getCenterX(),this.rect.getMaxY()));
+		}
 		
 		ArrayList<Entity> l = w.getEntityList();
 		for(int i = 0; i < l.size(); i++)

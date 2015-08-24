@@ -16,6 +16,7 @@ public class PlayerDataStorage {
 	public static boolean cargoWarp = false;
 	public static boolean microsingularity = false;
 	public static boolean mindcontrol = false;
+	public static boolean wormhole = false;
 	
 	public static int level = 0;
 	public static int[] levelTotals = {0,15,30,60,120,240,512,Integer.MAX_VALUE};

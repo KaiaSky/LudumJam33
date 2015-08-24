@@ -26,6 +26,7 @@ public class AnimHelper {
 	public static ArrayList<Animation> upgradebutton;
 	
 	public static ArrayList<Animation> microsingularity;
+	public static ArrayList<Animation> wormhole;
 	
 	public static ArrayList<Animation> upgradebg;
 	public static ArrayList<Animation> gamegui;
@@ -73,6 +74,10 @@ public class AnimHelper {
 		
 		microsingularity = new ArrayList<Animation>();
 		microsingularity.add(getAnimation(new String[]{"/res/img/entities/microsingularity/1.png","/res/img/entities/microsingularity/2.png","/res/img/entities/microsingularity/3.png","/res/img/entities/microsingularity/4.png","/res/img/entities/microsingularity/5.png"},100));
+		
+		wormhole = new ArrayList<Animation>();
+		wormhole.add(getAnimation("/res/img/entities/wormhole/wormhole.png"));
+
 		
 		beam = new ArrayList<Animation>();
 		beam.add(getAnimation(new String[]{"/res/img/entities/tractorbeam/beam1.png","/res/img/entities/tractorbeam/beam2.png"},50));

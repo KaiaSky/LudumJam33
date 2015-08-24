@@ -121,7 +121,8 @@ public class TechTree extends GUIElement{
 				PlayerDataStorage.cargoWarp = true;
 				break; //cargo warp
 			case 17:
-				break; //wormhole
+				PlayerDataStorage.wormhole = true;
+				break;
 			case 18:
 				break; //stargate
 			default:
