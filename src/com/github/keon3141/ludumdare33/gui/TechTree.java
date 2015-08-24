@@ -109,7 +109,8 @@ public class TechTree extends GUIElement{
 			case 12:
 				PlayerDataStorage.hullIntegrity = 230; break;
 			case 13:
-				break; //microsingularity
+				PlayerDataStorage.microsingularity = true;
+				break;
 			case 14:
 				PlayerDataStorage.scareRadius = 1;
 				break; //pheremone plasma

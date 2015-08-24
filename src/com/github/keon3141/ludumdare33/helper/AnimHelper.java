@@ -25,6 +25,8 @@ public class AnimHelper {
 	public static ArrayList<Animation> launchbutton;
 	public static ArrayList<Animation> upgradebutton;
 	
+	public static ArrayList<Animation> microsingularity;
+	
 	public static ArrayList<Animation> upgradebg;
 	public static ArrayList<Animation> gamegui;
 	public static ArrayList<Animation> frontbuildings;
@@ -68,6 +70,9 @@ public class AnimHelper {
 		person.add(getAnimation(new String[]{"/res/img/entities/person/whiteman/left1.png","/res/img/entities/person/whiteman/left2.png","/res/img/entities/person/whiteman/left3.png","/res/img/entities/person/whiteman/left4.png"},100));
 		person.add(getAnimation("/res/img/entities/person/whiteman/rightair.png"));
 		person.add(getAnimation("/res/img/entities/person/whiteman/leftair.png"));
+		
+		microsingularity = new ArrayList<Animation>();
+		microsingularity.add(getAnimation(new String[]{"/res/img/entities/microsingularity/1.png","/res/img/entities/microsingularity/2.png","/res/img/entities/microsingularity/3.png","/res/img/entities/microsingularity/4.png","/res/img/entities/microsingularity/5.png"},100));
 		
 		beam = new ArrayList<Animation>();
 		beam.add(getAnimation(new String[]{"/res/img/entities/tractorbeam/beam1.png","/res/img/entities/tractorbeam/beam2.png"},50));

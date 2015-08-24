@@ -21,6 +21,8 @@ public class UFO extends Entity implements PlayerStuff{
 	public int captives = 0;
 	public boolean initialized = false;
 	
+	public boolean hasMicrosingularity = PlayerDataStorage.microsingularity;
+	
 	public UFO(float newx, float newy) {
 		super(newx, newy,AnimHelper.ufo);
 		
@@ -90,6 +92,13 @@ public class UFO extends Entity implements PlayerStuff{
 			w.removeEntity(beam);
 			beam = null;
 		}
+		
+		if (in.isKeyDown(in.KEY_E)&&this.hasMicrosingularity) //FEAR ME
+		{
+			this.hasMicrosingularity = false;
+			w.addEntity(new Microsingularity(this.rect.getCenterX(),this.rect.getCenterY()));
+		}
+		
 		
 		ArrayList<Entity> l = w.getEntityList();
 		for(int i = 0; i < l.size(); i++)

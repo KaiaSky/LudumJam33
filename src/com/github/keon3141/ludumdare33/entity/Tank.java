@@ -69,53 +69,56 @@ public class Tank extends Entity implements GoodGuys{
 			}
 			hasInit = true;
 		}
-		if(!onGround);
+		if(!onGround)
 		{
 			dy += 60*dt;
 			if(this.getRect().getMaxY()>w.getFloorLevel())
 			{
 				onGround = true;
+				this.dy = 0;
 				this.getRect().setY(w.getFloorLevel()-this.getRect().getHeight());
 			}
 		}
-		
-		if(direction)
-		{
-			this.currentanimation = 0;
-			this.dx = speed;
-		}
 		else
 		{
-			this.currentanimation = 1;
-			this.dx = -speed;
-		}
-		directionTime-=dt;
-		if(directionTime<0)
-		{
-			direction=!direction;
-			directionTime = InGame.rand.nextInt(300)/10.0f;
-		}
-		angle = (float) Math.atan2(this.getRect().getCenterY()-target.getRect().getCenterY(), this.getRect().getCenterX()-target.getRect().getCenterX());
-		if(readytofire )
-		{
-			float dist = (float) (Math.pow((this.getRect().getCenterX()-target.getRect().getCenterX()),2) +  Math.pow((this.getRect().getCenterY()-target.getRect().getCenterY()),2));
-			if(targetingDistance*targetingDistance>dist)
+			if(direction)
 			{
-				if(direction)
-				{
-					w.addEntity(new Missile(this.getRect().getX()+33,this.getRect().getY()+30, angle),0);
-				}
-				else{
-					w.addEntity(new Missile(this.getRect().getX()+87,this.getRect().getY()+30, angle),0);
-				}
-				readytofire = false;
+				this.currentanimation = 0;
+				this.dx = speed;
 			}
-		}else{
-			currentCooldown -= dt;
-			if(currentCooldown < 0)
+			else
 			{
-				currentCooldown = weaponcooldown;
-				readytofire = true;
+				this.currentanimation = 1;
+				this.dx = -speed;
+			}
+			directionTime-=dt;
+			if(directionTime<0)
+			{
+				direction=!direction;
+				directionTime = InGame.rand.nextInt(300)/10.0f;
+			}
+			angle = (float) Math.atan2(this.getRect().getCenterY()-target.getRect().getCenterY(), this.getRect().getCenterX()-target.getRect().getCenterX());
+			if(readytofire )
+			{
+				float dist = (float) (Math.pow((this.getRect().getCenterX()-target.getRect().getCenterX()),2) +  Math.pow((this.getRect().getCenterY()-target.getRect().getCenterY()),2));
+				if(targetingDistance*targetingDistance>dist)
+				{
+					if(direction)
+					{
+						w.addEntity(new Missile(this.getRect().getX()+33,this.getRect().getY()+30, angle),0);
+					}
+					else{
+						w.addEntity(new Missile(this.getRect().getX()+87,this.getRect().getY()+30, angle),0);
+					}
+					readytofire = false;
+				}
+			}else{
+				currentCooldown -= dt;
+				if(currentCooldown < 0)
+				{
+					currentCooldown = weaponcooldown;
+					readytofire = true;
+				}
 			}
 		}
 		
