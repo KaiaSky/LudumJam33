@@ -186,24 +186,24 @@ public class TechTree extends GUIElement{
 		names.put(18, "Stargate III");
 		
 		flavortext.put(0, "Propulsion I: 5 Humans\nIt turns out that the Humans are a \nviable reactor fuel! Increases UFO \nthrust by 30%!");
-		flavortext.put(1, "Propulsion II: 20 Humans\nBy bombarding the live fuel source with\nradiation, we can create \ndeuterium-enriched water in its cells.\nThis should allow further speed increase \nof 30%");
+		flavortext.put(1, "Propulsion II: 20 Humans\nBy bombarding the fual humans\nwith radiation, we can create \ndeuterium-enriched water in its \ncells. This should allow further \nspeed increase of 30%");
 		flavortext.put(2, "Propulsion III: 50 Humans\nHuman genome can be modified to\nproduce even better fuel! Increase \nthrust by 40%!");
-		flavortext.put(3, "Tractor I: 5 Humans\nAdding sound effects to the gravity \ntractor beam seems to speed human \nabduction by 30%");
-		flavortext.put(4, "Tractor II: 20 Humans\nHumans cought in tractor beam are \nrouted through a turbine to produce \npower. The power is supplied back to \nthe beam for a 40% increase in power.");
-		flavortext.put(5, "Tractor III: 50 Humans\nFiring millions of nanoharpoons into the \nhide of abducted humans allows a 60% \nincrease in abduction speed.");
-		flavortext.put(6, "Plasma Speed I: 10 Humans\nBy using elements of the human mouth's \ndesign, our plasma beams can literally \nspit death. 30% faster plasma shots.");
+		flavortext.put(3, "Tractor I: 5 Humans\nAdding sound effects to the gravity \ntractor beam seems to speed \nhuman abduction by 30%");
+		flavortext.put(4, "Tractor II: 20 Humans\nHumans cought in tractor beam\nare routed through a turbine to \nproduce power. The power is \nsupplied back to the beam for a \n40% increase in power.");
+		flavortext.put(5, "Tractor III: 50 Humans\nFiring millions of nanoharpoons \ninto the hide of abducted humans \nallows a 60% increase in \nabduction speed.");
+		flavortext.put(6, "Plasma Speed I: 10 Humans\nBy using elements of the human \nmouth's design, our plasma beams\ncan literally spit death. \n30% faster plasma shots.");
 		flavortext.put(7, "Plasma Speed II: 30 Humans\nBy using a human sprinkler we can \nmodify the eddy currents in plasma\nbursts, allowing 60% faster bolts.");
-		flavortext.put(8, "Plasma Power I: 20 Humans\nEjecting a horseshoe magnet with the \nplasma bolt negates the atmospheric \ndissapation allowing 40% more \ndamaging plasma shots.");
-		flavortext.put(9, "Plasma Power II: 60 Humans\nChanging the color of the plasma from \nlime-green to a more chartruse color \nallows a further increase in power of 40%.");
-		flavortext.put(10, "Hull I: 5 Humans\nHuman skeletons are frail and weak,\nbut when mixed with UFO alloys\nthey create a product 30% tougher than \nanything we've seen before.");
-		flavortext.put(11, "Hull II: 20 Humans\nStudies of human fiction have indicated \nthat alien ships painted with a smiling \nface are 40% more resistant to attacks.");
-		flavortext.put(12, "Hull III: 40 Humans\nHumans make good blast shields, and \nit's not like we've got a shortage of \nthem. 50% more health from hanging \nhuman decoys outside.");
-		flavortext.put(13, "Microsingularity: 50 Humans\nIf you stick too many humans in the \nsame space-warp holding cell they create \na singularity.\n\n...In dire situations we could \nweaponize this. E to activate.");
-		flavortext.put(14, "Pheremone Plasma: 50 Humans\nAdding the chemicals found in the \nhuman substance \"Pizza\" negates the \npanic caused by being the target of a alien \nattack. Humans no longer panic from \nbeing shot at.");
-		flavortext.put(15, "Hijack Minds: 50 Humans\nOur infiltration teams have managed to \ncontrol the television networks.\nFor a signifigant cost, we could \nmind control all the humans into\nrunning straight into our tractor beam. R to activate.");
-		flavortext.put(16, "Cargo Warp I: 30 Humans\nThough the humans somehow don't \nknow it, they can control time and space \nwith their minds. We can use this to \nteleport them to the mothership in case our \nship is destroyed while on mission.");
-		flavortext.put(17, "Wormhole II: 80 Humans\nBy training enough humans, we should \nbe able to tear a tunnel directly from \nthe surface of earth to the holding pen \nof our mothership, capturing \nanybody who walks over it.\nT to activate.");
-		flavortext.put(18, "Stargate III: 200 Humans\nWith enough humans, the universe is \nopen to our conquest.\nTear a permanant hole through \nspace and time, and the \nfuture (and past) is yours.\n\nThis will win the game.");
+		flavortext.put(8, "Plasma Power I: 20 Humans\nEjecting a horseshoe magnet with \nthe plasma bolt negates the \ndissapation allowing 40% more \ndamaging plasma shots.");
+		flavortext.put(9, "Plasma Power II: 60 Humans\nChanging the color of the plasma \nfrom lime to chartruse allows a \nfurther increase in power of 40%.");
+		flavortext.put(10, "Hull I: 5 Humans\nHuman skeletons are frail and \nweak, but when mixed with UFO \nalloys they create a product 30% \ntougher than previous alloys.");
+		flavortext.put(11, "Hull II: 20 Humans\nStudies of human fiction have \nindicated that alien ships painted \nwith a smiling face are \n40% more resistant to attacks.");
+		flavortext.put(12, "Hull III: 40 Humans\nHumans make good blast shields, \nand it's not like we've got a \nshortage of them. 50% more health \nby hanging human decoys outside.");
+		flavortext.put(13, "Microsingularity: 50 Humans\nIf you stick too many humans in \nthe same space-warp holding cell \nthey create a singularity.\n\n...In dire situations we could \nweaponize this. \nE to activate.");
+		flavortext.put(14, "Pheremone Plasma: 50 Humans\nAdding the chemicals found in the \nhuman substance \"Pizza\" negates \nthe panic caused by being the \ntarget of a alien attack. \n\nHumans no longer panic from \nbeing shot at.");
+		flavortext.put(15, "Hijack Minds: 50 Humans\nOur infiltration teams have \nmanaged to control the television \nnetworks.\n\nWhen active all the humans will \nrun straight into our tractor beam. \nR to activate.");
+		flavortext.put(16, "Cargo Warp I: 30 Humans\nThough the humans somehow \ndon't know it, they can control \ntime and space with their minds.\nWe can use this to teleport them \nto the mothership in case our \nship is destroyed while on mission.");
+		flavortext.put(17, "Wormhole II: 80 Humans\nBy training enough humans, we \nshould be able to tear a tunnel \ndirectly from the surface of earth \nto the holding pen of our \nmothership, capturing anybody \nwho walks over it.\nT to activate.");
+		flavortext.put(18, "Stargate III: 200 Humans\nWith enough humans, the universe \nis open to our conquest.\nTear a permanant hole through \nspace and time, and the \nfuture (and past) is yours.\n\nThis will win the game.");
 	}
 
 }

@@ -99,6 +99,8 @@ public class InGame extends BasicGameState {
 		{
 			if(test.pollClicked())
 			{
+				freeMouse(container);
+				container.setMouseGrabbed(false);
 				w.addGui(new EndLevelScreen(2));
 				PlayerDataStorage.humanCaptives += ((UFO)ufo).captives;
 				PlayerDataStorage.totalCaptives += ((UFO)ufo).captives;
@@ -107,6 +109,7 @@ public class InGame extends BasicGameState {
 			}
 			if(health.dead)
 			{
+				freeMouse(container);
 				if(PlayerDataStorage.cargoWarp)
 				{
 					PlayerDataStorage.humanCaptives += ((UFO)ufo).captives;
@@ -115,10 +118,12 @@ public class InGame extends BasicGameState {
 				}else{
 					w.addGui(new EndLevelScreen(1));
 				}
+				container.setMouseGrabbed(false);
 				over = true;
 				w.setActive(false);
 			}if(time.out)
 			{
+				freeMouse(container);
 				w.addGui(new EndLevelScreen(0));
 
 				PlayerDataStorage.humanCaptives += ((UFO)ufo).captives;
@@ -134,6 +139,14 @@ public class InGame extends BasicGameState {
 				game.enterState(2);
 			}
 		}
+	}
+	
+	public void freeMouse(GameContainer gc)
+	{
+		int x = gc.getInput().getMouseX();
+		int y = gc.getInput().getMouseY();
+		gc.setMouseGrabbed(false);
+		org.lwjgl.input.Mouse.setCursorPosition(x,600-y);
 	}
 
 }

@@ -37,7 +37,7 @@ public class UpgradeScreen extends BasicGameState{
 		w.addGui(new HumanCounter(475, 75));
 		
 	}
-
+	
 	@Override
 	public void mousePressed(int button, int x, int y)
 	{
@@ -56,6 +56,7 @@ public class UpgradeScreen extends BasicGameState{
 	@Override
 	public void update(GameContainer container, StateBasedGame game, int delta)
 			throws SlickException {
+		
 		float dt = delta/1000.0f;
 		w.update(dt);
 		if(launchinvasion.pollClicked())

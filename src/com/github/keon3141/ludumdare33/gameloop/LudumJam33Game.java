@@ -15,8 +15,9 @@ public class LudumJam33Game extends StateBasedGame {
     public static final int WIDTH = 800;
     public static final int HEIGHT = 600;
     public static final int FPS = 60;
-    public static final String VERSION = "0.0.1a",
-            TITLE = "Ludum Jam 33 Game";
+    public static final String VERSION = "1.0",
+            TITLE = "Ludum Jam 33: Abduction";
+    public static final String ICON = "/res/img/gui/icon.tga";
     private static AppGameContainer app;
 
     public LudumJam33Game(String appName) {
@@ -46,6 +47,7 @@ public class LudumJam33Game extends StateBasedGame {
     public static void begin(String[] args) {
         try {
             app = new AppGameContainer(new LudumJam33Game(TITLE + " v" + VERSION));
+            app.setIcon(ICON);
             app.setDisplayMode(WIDTH, HEIGHT, false);
             app.setTargetFrameRate(FPS);
             app.setVSync(true);
