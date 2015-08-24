@@ -14,8 +14,8 @@ public class Crosshairs extends GUIElement{
 
 	public void update(float dt, World w)
 	{
-		this.setX(w.input.getMouseX());
-		this.setY(w.input.getMouseY());
+		this.rect.setCenterX(w.input.getMouseX());
+		this.rect.setCenterY(w.input.getMouseY());
 	}
 	
 }
