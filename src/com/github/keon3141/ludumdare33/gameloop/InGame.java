@@ -96,7 +96,14 @@ public class InGame extends BasicGameState {
 			}
 			if(health.dead)
 			{
-				w.addGui(new EndLevelScreen(1));
+				if(PlayerDataStorage.cargoWarp)
+				{
+					PlayerDataStorage.humanCaptives += ((UFO)ufo).captives;
+					PlayerDataStorage.totalCaptives += ((UFO)ufo).captives;
+					w.addGui(new EndLevelScreen(4));
+				}else{
+					w.addGui(new EndLevelScreen(1));
+				}
 				over = true;
 				w.setActive(false);
 			}if(time.out)

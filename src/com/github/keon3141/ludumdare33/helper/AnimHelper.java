@@ -84,7 +84,7 @@ public class AnimHelper {
 		abortbutton.add(getAnimation("/res/img/gui/abortbutton/abortpressed.png"));
 		
 		crosshairs = new ArrayList<Animation>();
-		crosshairs.add(getAnimation("/res/img/crosshairs.png"));
+		crosshairs.add(getAnimation("/res/img/gui/crosshairs/crosshairs.png"));
 		
 		timer = new ArrayList<Animation>();
 		timer.add(getAnimation("/res/img/gui/timer/timerbase.png"));
@@ -97,6 +97,7 @@ public class AnimHelper {
 		endscreen.add(getAnimation("/res/img/gui/endlevelscreens/time.png"));
 		endscreen.add(getAnimation("/res/img/gui/endlevelscreens/shipdestroyed.png"));
 		endscreen.add(getAnimation("/res/img/gui/endlevelscreens/abort.png"));
+		endscreen.add(getAnimation("/res/img/gui/endlevelscreens/destroyedteleporter.png"));
 		
 		tank = new ArrayList<Animation>();
 		tank.add(getAnimation("/res/img/entities/tank/tankR.png"));

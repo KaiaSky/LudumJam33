@@ -12,6 +12,9 @@ public class PlayerDataStorage {
 	public static int hullIntegrity = 100;
 	public static boolean[] upgradesBought = {false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false};
 	
+	public static float scareRadius = 128;
+	public static boolean cargoWarp = false;
+	
 	public static int level = 0;
 	public static int[] levelTotals = {0,15,30,60,120,240,512,Integer.MAX_VALUE};
 	

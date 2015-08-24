@@ -7,12 +7,14 @@ import org.newdawn.slick.geom.Circle;
 
 import com.github.keon3141.ludumdare33.gameloop.World;
 import com.github.keon3141.ludumdare33.helper.AnimHelper;
+import com.github.keon3141.ludumdare33.helper.PlayerDataStorage;
 import com.github.keon3141.ludumdare33.helper.SoundHelper;
 
 public class Explosion extends Entity{
 
 	public float lifetime = 0.25f;
-	public Circle scareRadius;
+	public Circle scareCircle;
+	public float radius = PlayerDataStorage.scareRadius;
 	public int damage;
 	private boolean unexploded = true;
 	
@@ -20,7 +22,7 @@ public class Explosion extends Entity{
 		super(xCenter, xCenter, AnimHelper.explosion);
 		getRect().setCenterX(xCenter);
 		getRect().setCenterY(yCenter);
-		scareRadius = new Circle(getRect().getCenterX(), getRect().getCenterY(), getRect().getWidth()*2);
+		scareCircle = new Circle(getRect().getCenterX(), getRect().getCenterY(), radius );
 		this.damage = damage;
 		health = 1000;
 		maxhealth = 1000;
@@ -45,7 +47,7 @@ public class Explosion extends Entity{
 					{
 						e.takeDamage(damage);
 					}
-					if(e instanceof Person && e.getRect().intersects(this.scareRadius))
+					if(e instanceof Person && e.getRect().intersects(this.scareCircle))
 					{
 						((Person)e).fear();
 						((Person)e).direction = this.getRect().getCenterX()<e.getRect().getCenterX();
