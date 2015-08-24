@@ -45,7 +45,6 @@ public class LudumJam33Game extends StateBasedGame {
     
     public static void begin(String[] args) {
         try {
-        	
             app = new AppGameContainer(new LudumJam33Game(TITLE + " v" + VERSION));
             app.setDisplayMode(WIDTH, HEIGHT, false);
             app.setTargetFrameRate(FPS);

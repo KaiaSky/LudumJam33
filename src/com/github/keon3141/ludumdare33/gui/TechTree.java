@@ -130,7 +130,6 @@ public class TechTree extends GUIElement{
 			default:
 				break;
 		}
-		System.out.println(PlayerDataStorage.thrustPower);
 			
 	}
 	

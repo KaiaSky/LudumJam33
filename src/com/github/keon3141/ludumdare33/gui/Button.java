@@ -60,7 +60,6 @@ public class Button extends GUIElement{
 	{
 		if(clicked)
 		{
-			System.out.println(clicked);
 			clicked = false;
 			return true;
 		}

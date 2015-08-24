@@ -43,7 +43,6 @@ public class Entity {
 	public void takeDamage(int damage)
 	{
 		health -= damage;
-		System.out.println(this+" "+health);
 		if(health <= 0)
 		{
 			die();

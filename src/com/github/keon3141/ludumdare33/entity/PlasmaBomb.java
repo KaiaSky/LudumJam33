@@ -53,7 +53,6 @@ public class PlasmaBomb extends Entity implements PlayerStuff{
 		}if(this.getRect().getMaxY() > w.getFloorLevel())
 		{
 			this.die();
-			System.out.println("hitfloor"+this);
 			w.addEntity(new Explosion(getRect().getCenterX(), getRect().getCenterY(), damage));
 			return;
 		}

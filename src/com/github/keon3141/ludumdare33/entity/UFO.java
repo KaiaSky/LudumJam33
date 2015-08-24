@@ -162,7 +162,6 @@ public class UFO extends Entity implements PlayerStuff{
 			{                   
 				if(RectangleHelper.contains(this.getRect(), e.getRect()))
 				{
-					System.out.print("DIE");
 					e.die(); //rip
 					captives += 1;
 				}

@@ -48,7 +48,6 @@ public class Wormhole extends Entity {
 					Person p = (Person)el.get(i);
 					if(Math.abs(p.rect.getCenterX()-this.rect.getCenterX())<5 && p.onGround)
 					{
-						System.out.println('b');
 						p.die();
 						PlayerDataStorage.humanCaptives ++;
 					}
