@@ -2,7 +2,8 @@ package com.github.keon3141.ludumdare33.helper;
 
 public class PlayerDataStorage {
 
-	public static int humanCaptives = 1000;
+	public static int humanCaptives = 0;
+	public static int totalCaptives = 0;
 	public static int metal = 0;
 	public static float thrustPower = 240;
 	public static float tractorForce = 100;
@@ -10,4 +11,19 @@ public class PlayerDataStorage {
 	public static int plasmaDamage = 5;
 	public static int hullIntegrity = 100;
 	public static boolean[] upgradesBought = {false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false};
+	
+	public static int level = 0;
+	public static int[] levelTotals = {0,15,30,60,120,240,512,Integer.MAX_VALUE};
+	
+	public static void updateLevels()
+	{
+		for(int i = 0; i < levelTotals.length; i++)
+		{
+			if(levelTotals[i]>totalCaptives)
+			{
+				level = i-1;
+				return;
+			}
+		}
+	}
 }

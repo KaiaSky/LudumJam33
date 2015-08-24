@@ -20,6 +20,8 @@ import com.github.keon3141.ludumdare33.gui.EndLevelScreen;
 import com.github.keon3141.ludumdare33.gui.Healthbar;
 import com.github.keon3141.ludumdare33.gui.Timer;
 import com.github.keon3141.ludumdare33.helper.AnimHelper;
+import com.github.keon3141.ludumdare33.helper.LevelSpawner;
+import com.github.keon3141.ludumdare33.helper.PlayerDataStorage;
 
 public class InGame extends BasicGameState {
 
@@ -30,6 +32,7 @@ public class InGame extends BasicGameState {
 	Healthbar health;
 	Timer time;
 	boolean over;
+	Entity ufo;
 	
 	@Override
 	public int getID() {
@@ -43,7 +46,7 @@ public class InGame extends BasicGameState {
 		rand = new Random();
 		over = false;
 		w = new World(1600,800,500,input);
-		Entity ufo  = new UFO(0,0);
+		ufo  = new UFO(0,0);
 		w.addEntity(ufo);
 		w.getC().setTarget(ufo);
 		
@@ -65,12 +68,7 @@ public class InGame extends BasicGameState {
 		
 		
 		
-		
-		for(int i = 0; i < 10; i++)
-		{
-			w.addEntity(new Person(rand.nextInt(800),450));
-		}
-		w.addEntity(new Tank(rand.nextInt(800),450));
+		w.addEntity(new LevelSpawner(w));
 		
 		
 	}
@@ -91,6 +89,8 @@ public class InGame extends BasicGameState {
 			if(test.pollClicked())
 			{
 				w.addGui(new EndLevelScreen(2));
+				PlayerDataStorage.humanCaptives += ((UFO)ufo).captives;
+				PlayerDataStorage.totalCaptives += ((UFO)ufo).captives;
 				over = true;
 				w.setActive(false);
 			}
@@ -102,6 +102,9 @@ public class InGame extends BasicGameState {
 			}if(time.out)
 			{
 				w.addGui(new EndLevelScreen(0));
+
+				PlayerDataStorage.humanCaptives += ((UFO)ufo).captives;
+				PlayerDataStorage.totalCaptives += ((UFO)ufo).captives;
 				over = true;
 				w.setActive(false);
 			}
