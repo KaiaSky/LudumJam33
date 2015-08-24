@@ -88,7 +88,6 @@ public class UFO extends Entity implements PlayerStuff{
 					System.out.print("DIE");
 					e.die(); //rip
 					captives += 1;
-					health -=10;
 				}
 			}
 		}

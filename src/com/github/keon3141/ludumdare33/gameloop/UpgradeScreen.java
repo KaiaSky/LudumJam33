@@ -9,6 +9,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import com.github.keon3141.ludumdare33.gui.BG;
 import com.github.keon3141.ludumdare33.gui.Button;
+import com.github.keon3141.ludumdare33.gui.HumanCounter;
 import com.github.keon3141.ludumdare33.gui.TechTree;
 import com.github.keon3141.ludumdare33.helper.AnimHelper;
 
@@ -32,6 +33,7 @@ public class UpgradeScreen extends BasicGameState{
 		tt = new TechTree();
 		w.addGui(tt);
 		w.addGui(launchinvasion);
+		w.addGui(new HumanCounter(475, 75));
 		
 	}
 
