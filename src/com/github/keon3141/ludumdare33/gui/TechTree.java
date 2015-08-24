@@ -115,7 +115,8 @@ public class TechTree extends GUIElement{
 				PlayerDataStorage.scareRadius = 1;
 				break; //pheremone plasma
 			case 15:
-				break; // Hijack minds
+				PlayerDataStorage.mindcontrol = true;
+				break;
 			case 16:
 				PlayerDataStorage.cargoWarp = true;
 				break; //cargo warp

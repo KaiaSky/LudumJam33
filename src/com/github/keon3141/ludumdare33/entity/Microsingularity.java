@@ -2,10 +2,9 @@ package com.github.keon3141.ludumdare33.entity;
 
 import java.util.ArrayList;
 
-import org.newdawn.slick.Animation;
-
 import com.github.keon3141.ludumdare33.gameloop.World;
 import com.github.keon3141.ludumdare33.helper.AnimHelper;
+import com.github.keon3141.ludumdare33.helper.SoundHelper;
 
 public class Microsingularity extends Entity{
 
@@ -15,6 +14,7 @@ public class Microsingularity extends Entity{
 		super(x, y, AnimHelper.microsingularity);
 		this.rect.setCenterX(x);
 		this.rect.setCenterY(y);
+		SoundHelper.microsingularity.play();
 	}
 	
 	public void update(float dt, World w)

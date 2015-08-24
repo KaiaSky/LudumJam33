@@ -22,6 +22,9 @@ public class UFO extends Entity implements PlayerStuff{
 	public boolean initialized = false;
 	
 	public boolean hasMicrosingularity = PlayerDataStorage.microsingularity;
+	public boolean hasMindControl = PlayerDataStorage.mindcontrol;
+	public boolean mindcontrolactive = false;
+	public float mindcontroltime = 5f;
 	
 	public UFO(float newx, float newy) {
 		super(newx, newy,AnimHelper.ufo);
@@ -97,6 +100,50 @@ public class UFO extends Entity implements PlayerStuff{
 		{
 			this.hasMicrosingularity = false;
 			w.addEntity(new Microsingularity(this.rect.getCenterX(),this.rect.getCenterY()));
+		}
+		if (in.isKeyDown(in.KEY_R)&&this.hasMindControl) //FEAR ME
+		{
+			this.hasMindControl = false;
+			this.mindcontrolactive = true;
+			SoundHelper.mindcontrol.play();
+			ArrayList<Entity> l = w.getEntityList();
+			for(int i = 0; i < l.size(); i++)
+			{
+				Entity e = l.get(i);
+				if(e instanceof Person)
+				{                   
+					((Person)e).mindControlled = true;
+				}
+				if(e instanceof Tank)
+				{                   
+					((Tank)e).mindControlled = true;
+				}
+			}
+		}
+		if(this.mindcontrolactive)
+		{
+			this.mindcontroltime-=dt;
+			if(mindcontroltime <=0)
+			{
+				this.mindcontrolactive = false;
+				ArrayList<Entity> l = w.getEntityList();
+				for(int i = 0; i < l.size(); i++)
+				{
+					Entity e = l.get(i);
+					if(e instanceof Person)
+					{                   
+						((Person)e).mindControlled = false;
+						if (Math.abs(e.rect.getCenterX()-this.rect.getCenterX())<50)
+						{
+							((Person)e).fear();
+						}
+					}
+					if(e instanceof Tank)
+					{                   
+						((Tank)e).mindControlled = false;
+					}
+				}
+			}
 		}
 		
 		

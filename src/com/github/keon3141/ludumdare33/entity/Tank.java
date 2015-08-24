@@ -25,6 +25,8 @@ public class Tank extends Entity implements GoodGuys{
 	int turretanimation;
 	float angle;
 	
+	public boolean mindControlled = false;
+	
 	public Tank(float x, float y) {
 		super(x, y, AnimHelper.tank);
 		health = 7;
@@ -79,7 +81,7 @@ public class Tank extends Entity implements GoodGuys{
 				this.getRect().setY(w.getFloorLevel()-this.getRect().getHeight());
 			}
 		}
-		else
+		else if (!mindControlled)
 		{
 			if(direction)
 			{
@@ -120,6 +122,9 @@ public class Tank extends Entity implements GoodGuys{
 					readytofire = true;
 				}
 			}
+		}else{
+			this.dx = 0;
+			this.dy = 0;
 		}
 		
 		if(this.getRect().getMinX() < 0 || this.getRect().getMaxX() > w.width)

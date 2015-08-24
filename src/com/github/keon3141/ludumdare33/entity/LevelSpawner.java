@@ -1,15 +1,14 @@
-package com.github.keon3141.ludumdare33.helper;
+package com.github.keon3141.ludumdare33.entity;
 
 import java.util.HashMap;
 import java.util.Iterator;
 
 import org.newdawn.slick.Graphics;
 
-import com.github.keon3141.ludumdare33.entity.Entity;
-import com.github.keon3141.ludumdare33.entity.Person;
-import com.github.keon3141.ludumdare33.entity.Tank;
 import com.github.keon3141.ludumdare33.gameloop.InGame;
 import com.github.keon3141.ludumdare33.gameloop.World;
+import com.github.keon3141.ludumdare33.helper.AnimHelper;
+import com.github.keon3141.ludumdare33.helper.PlayerDataStorage;
 
 public class LevelSpawner extends Entity{
 

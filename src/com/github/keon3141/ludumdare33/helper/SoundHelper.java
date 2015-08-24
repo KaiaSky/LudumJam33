@@ -11,6 +11,9 @@ public class SoundHelper {
 	public static Sound tankcannon;
 	public static Sound tractorbeam;
 	public static Sound ufo;
+	public static Sound microsingularity;
+	public static Sound mindcontrol;
+	public static Sound wormhole;
 	
 	public static void loadSounds()
 	{
@@ -27,6 +30,10 @@ public class SoundHelper {
 			tankcannon = new Sound("/res/sfx/tankcannon.ogg");
 			tractorbeam = new Sound("/res/sfx/tractorbeam.ogg");
 			ufo = new Sound("/res/sfx/ufo.ogg");
+			
+			microsingularity = new Sound("/res/sfx/microsingularity.ogg");
+			mindcontrol = new Sound("/res/sfx/mindcontrol.ogg");
+			wormhole = new Sound("/res/sfx/wormhole.ogg");
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}

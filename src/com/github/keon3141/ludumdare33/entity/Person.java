@@ -1,5 +1,7 @@
 package com.github.keon3141.ludumdare33.entity;
 
+import java.util.ArrayList;
+
 import org.newdawn.slick.Animation;
 
 import com.github.keon3141.ludumdare33.gameloop.InGame;
@@ -16,6 +18,10 @@ public class Person extends Entity implements GoodGuys {
 	float directionTime;
 	int ethnicity;
 	float screamTime = 0;
+	boolean hasInit = false;
+	Entity target;
+	
+	public boolean mindControlled = false;
 	
 	
 	public Person(float x, float y)
@@ -38,8 +44,35 @@ public class Person extends Entity implements GoodGuys {
 	{
 		super.update(dt, w);
 		
+		if(!hasInit)
+		{
+			ArrayList<Entity> el = w.getEntityList();
+			for (int i = 0; i < el.size(); i++)
+			{
+				if(el.get(i) instanceof UFO)
+				{
+					target = el.get(i);
+					break;
+				}
+			}
+			hasInit = true;
+		}
 		
-		if(onGround)
+		if(mindControlled && onGround)
+		{
+			if (Math.abs(target.rect.getCenterX() - this.rect.getCenterX()) < 1)
+			{
+				this.dx = 0;
+			}
+			else if (target.rect.getCenterX() > this.rect.getCenterX())
+			{
+				this.dx = speed*1.5f;
+			}else
+			{
+				this.dx = -speed*1.5f;
+			}
+		}
+		else if(onGround)
 		{
 			dy = 0;
 			if(!afraid)
@@ -90,6 +123,7 @@ public class Person extends Entity implements GoodGuys {
 			if(this.getRect().getMaxY()>w.getFloorLevel())
 			{
 				onGround = true;
+				this.dy=0;
 				this.getRect().setY(w.getFloorLevel()-this.getRect().getHeight());
 			}
 			if(direction)

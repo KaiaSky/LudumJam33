@@ -10,6 +10,7 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 import com.github.keon3141.ludumdare33.entity.Entity;
+import com.github.keon3141.ludumdare33.entity.LevelSpawner;
 import com.github.keon3141.ludumdare33.entity.Person;
 import com.github.keon3141.ludumdare33.entity.Tank;
 import com.github.keon3141.ludumdare33.entity.UFO;
@@ -20,7 +21,6 @@ import com.github.keon3141.ludumdare33.gui.EndLevelScreen;
 import com.github.keon3141.ludumdare33.gui.Healthbar;
 import com.github.keon3141.ludumdare33.gui.Timer;
 import com.github.keon3141.ludumdare33.helper.AnimHelper;
-import com.github.keon3141.ludumdare33.helper.LevelSpawner;
 import com.github.keon3141.ludumdare33.helper.PlayerDataStorage;
 
 public class InGame extends BasicGameState {
