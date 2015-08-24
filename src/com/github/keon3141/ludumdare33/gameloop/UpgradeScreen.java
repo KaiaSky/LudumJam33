@@ -12,6 +12,7 @@ import com.github.keon3141.ludumdare33.gui.Button;
 import com.github.keon3141.ludumdare33.gui.HumanCounter;
 import com.github.keon3141.ludumdare33.gui.TechTree;
 import com.github.keon3141.ludumdare33.helper.AnimHelper;
+import com.github.keon3141.ludumdare33.helper.PlayerDataStorage;
 
 public class UpgradeScreen extends BasicGameState{
 
@@ -61,6 +62,10 @@ public class UpgradeScreen extends BasicGameState{
 		{
 			game.getState(1).init(container, game);
 			game.enterState(1);
+		}
+		if(PlayerDataStorage.win)
+		{
+			game.enterState(3);
 		}
 	}
 

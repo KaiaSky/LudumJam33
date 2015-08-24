@@ -35,6 +35,9 @@ public class AnimHelper {
 	public static ArrayList<Animation> farhills;
 	public static ArrayList<Animation> sky;
 	
+	public static ArrayList<Animation> titlescreen;
+	public static ArrayList<Animation> winscreen;
+	
 	
 	public static void setupAnimations()
 	{
@@ -154,6 +157,12 @@ public class AnimHelper {
 		
 		sky = new ArrayList<Animation>();
 		sky.add(getAnimation("/res/img/gui/backgrounds/sky.png"));
+		
+		titlescreen = new ArrayList<Animation>();
+		titlescreen.add(getAnimation("/res/img/gui/titlescreen/title.png"));
+		
+		winscreen = new ArrayList<Animation>();
+		winscreen.add(getAnimation("/res/img/gui/titlescreen/winscreen.png"));
 	}
 	
 	public static Animation getAnimation(String str)

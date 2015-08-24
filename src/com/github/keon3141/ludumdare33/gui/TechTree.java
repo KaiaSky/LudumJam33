@@ -8,6 +8,7 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.TrueTypeFont;
 
+import com.github.keon3141.ludumdare33.gameloop.UpgradeScreen;
 import com.github.keon3141.ludumdare33.gameloop.World;
 import com.github.keon3141.ludumdare33.helper.AnimHelper;
 import com.github.keon3141.ludumdare33.helper.PlayerDataStorage;
@@ -124,6 +125,7 @@ public class TechTree extends GUIElement{
 				PlayerDataStorage.wormhole = true;
 				break;
 			case 18:
+				PlayerDataStorage.win = true;
 				break; //stargate
 			default:
 				break;

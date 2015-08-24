@@ -27,8 +27,10 @@ public class LudumJam33Game extends StateBasedGame {
     public void initStatesList(GameContainer gc) throws SlickException {
         AnimHelper.setupAnimations();
         SoundHelper.loadSounds();
-    	addState(new UpgradeScreen());
+        addState(new StartScreen());
     	addState(new InGame());
+    	addState(new UpgradeScreen());
+    	addState(new WinScreen());
     }
 
     @Override
