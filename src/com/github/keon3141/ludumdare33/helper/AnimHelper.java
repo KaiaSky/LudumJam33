@@ -36,6 +36,7 @@ public class AnimHelper {
 	public static ArrayList<Animation> sky;
 	
 	public static ArrayList<Animation> titlescreen;
+	public static ArrayList<Animation> tutorial;
 	public static ArrayList<Animation> winscreen;
 	
 	
@@ -160,6 +161,12 @@ public class AnimHelper {
 		
 		titlescreen = new ArrayList<Animation>();
 		titlescreen.add(getAnimation("/res/img/gui/titlescreen/title.png"));
+		
+		tutorial = new ArrayList<Animation>();
+		tutorial.add(getAnimation("/res/img/gui/tutorial/page1-1.png"));
+		tutorial.add(getAnimation(new String[]{"/res/img/gui/tutorial/page2-1.png","/res/img/gui/tutorial/page2-2.png","/res/img/gui/tutorial/page2-3.png"},500));
+		tutorial.add(getAnimation("/res/img/gui/tutorial/page3-1.png"));
+		tutorial.add(getAnimation("/res/img/gui/tutorial/page4-1.png"));
 		
 		winscreen = new ArrayList<Animation>();
 		winscreen.add(getAnimation("/res/img/gui/titlescreen/winscreen.png"));

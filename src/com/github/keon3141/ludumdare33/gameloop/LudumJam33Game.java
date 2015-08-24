@@ -28,6 +28,7 @@ public class LudumJam33Game extends StateBasedGame {
         AnimHelper.setupAnimations();
         SoundHelper.loadSounds();
         addState(new StartScreen());
+        addState(new Tutorial());
     	addState(new InGame());
     	addState(new UpgradeScreen());
     	addState(new WinScreen());
